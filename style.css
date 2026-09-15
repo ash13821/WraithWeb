@@ -29,11 +29,6 @@ input {
   font: inherit;
 }
 
-
-/* =========================================================
-   SITE
-========================================================= */
-
 #site {
   min-height: 100vh;
 
@@ -43,11 +38,6 @@ input {
       transparent 28%),
     var(--ink);
 }
-
-
-/* =========================================================
-   NAVBAR
-========================================================= */
 
 .navbar {
   position: fixed;
@@ -99,11 +89,6 @@ input {
   color: var(--gold-bright);
 }
 
-
-/* =========================================================
-   HERO
-========================================================= */
-
 .hero {
   min-height: 100vh;
   position: relative;
@@ -112,7 +97,6 @@ input {
   padding: 120px 10vw 90px;
   overflow: hidden;
 }
-
 
 .hero-copy {
   position: relative;
@@ -176,11 +160,6 @@ input {
   line-height: 1.7;
 }
 
-
-/* =========================================================
-   HERO ACTIONS
-========================================================= */
-
 .hero-actions {
   display: flex;
 
@@ -239,11 +218,6 @@ input {
   transform:
     translateY(3px);
 }
-
-
-/* =========================================================
-   HERO ACCENT
-========================================================= */
 
 .hero-accent {
   position: absolute;
@@ -323,14 +297,6 @@ input {
   writing-mode: vertical-rl;
 }
 
-
-/* =========================================================
-   ABOUT
-========================================================= */
-/* =========================================
-   ABOUT LAYOUT
-========================================= */
-
 .about-layout {
   width: 100%;
 
@@ -340,11 +306,6 @@ input {
 
   gap: 80px;
 }
-
-
-/* =========================================
-   ABOUT IMAGE
-========================================= */
 
 .about-image {
   position: relative;
@@ -358,9 +319,6 @@ input {
 
   order: 2;
 }
-
-
-/* GLOW BEHIND WRAITH */
 
 .about-image::before {
   content: "";
@@ -384,9 +342,6 @@ input {
   animation: wraithGlow 4s ease-in-out infinite;
 }
 
-
-/* SECOND MAGIC GLOW */
-
 .about-image::after {
   content: "";
 
@@ -408,9 +363,6 @@ input {
   animation: wraithAura 5s ease-in-out infinite alternate;
 }
 
-
-/* CHARACTER */
-
 .about-image img {
   position: relative;
 
@@ -431,7 +383,6 @@ input {
     filter 0.5s ease;
 }
 
-
 .about-image:hover img {
   transform: translateY(-8px) scale(1.02);
 
@@ -439,13 +390,7 @@ input {
     drop-shadow(0 0 20px rgba(231, 200, 116, 0.5)) drop-shadow(0 0 70px rgba(201, 162, 75, 0.3));
 }
 
-
-/* =========================================
-   GLOW ANIMATION
-========================================= */
-
 @keyframes wraithGlow {
-
   0%,
   100% {
     transform: scale(0.9);
@@ -456,12 +401,9 @@ input {
     transform: scale(1.08);
     opacity: 1;
   }
-
 }
 
-
 @keyframes wraithAura {
-
   0% {
     transform: rotate(-15deg) scale(0.9);
     opacity: 0.4;
@@ -471,13 +413,7 @@ input {
     transform: rotate(15deg) scale(1.1);
     opacity: 0.8;
   }
-
 }
-
-
-/* =========================================
-   ABOUT TEXT
-========================================= */
 
 .wraith-block-content {
   width: 55%;
@@ -487,10 +423,6 @@ input {
 
   order: 1;
 }
-
-/* =========================================================
-   INTRO
-========================================================= */
 
 #intro {
   position: fixed;
@@ -542,11 +474,6 @@ input {
   pointer-events: none;
 }
 
-
-/* =========================================================
-   HOLOGRAPHIC CHAT
-========================================================= */
-
 .chat-dialog {
   position: fixed;
   inset: 0;
@@ -573,11 +500,6 @@ input {
   pointer-events: auto;
 }
 
-
-/* =========================================================
-   DARK BACKGROUND
-========================================================= */
-
 .chat-overlay {
   position: absolute;
   inset: 0;
@@ -590,10 +512,6 @@ input {
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
-
-/* =========================================================
-   HOLOGRAM CONTAINER
-========================================================= */
 
 .hologram {
   position: relative;
@@ -622,11 +540,6 @@ input {
   opacity: 1;
 }
 
-  
-/* =========================================================
-   HOLOGRAPHIC CHAT
-========================================================= */
-
 .chat-shell {
   position: relative;
 
@@ -646,7 +559,7 @@ input {
 
   box-shadow:0 25px 80px rgba(0, 0, 0, 0.45),
     0 0 35px rgba(201, 162, 75, 0.035);
-  
+
   transform:
     translateY(-20px);
 
@@ -655,7 +568,6 @@ input {
 }
 
 @keyframes hologram-float {
-
   0%,
   100% {
     transform:
@@ -668,11 +580,6 @@ input {
   }
 }
 
-
-/* =========================================================
-   HOLOGRAM TEXT GLOW
-========================================================= */
-
 .chat-shell h2,
 .chat-shell p,
 .chat-shell .msg,
@@ -681,11 +588,6 @@ input {
   text-shadow:
     0 0 10px rgba(201, 162, 75, 0.18);
 }
-
-
-/* =========================================================
-   CHAT HEADER
-========================================================= */
 
 .chat-header {
   position: relative;
@@ -702,9 +604,6 @@ input {
 
   border: none;
 }
-
-
-/* FIXED: sigil, not sigile */
 
 .sigil {
   flex: none;
@@ -744,9 +643,6 @@ input {
     0 0 12px rgba(231, 200, 116, 0.8);
 }
 
-
-/* Header text */
-
 .header-text {
   flex: 1;
 }
@@ -785,11 +681,6 @@ input {
     1px;
 }
 
-
-/* =========================================================
-   STATUS
-========================================================= */
-
 .status {
   display: flex;
   align-items: center;
@@ -821,11 +712,6 @@ input {
   box-shadow:
     0 0 10px var(--gold-bright);
 }
-
-
-/* =========================================================
-   CLOSE
-========================================================= */
 
 .chat-close {
   margin-left: 18px;
@@ -860,11 +746,6 @@ input {
     0 0 12px rgba(201, 162, 75, 0.8);
 }
 
-
-/* =========================================================
-   MESSAGES
-========================================================= */
-
 .messages {
   position: relative;
 
@@ -893,11 +774,6 @@ input {
   background:
     rgba(201, 162, 75, 0.35);
 }
-
-
-/* =========================================================
-   MESSAGE
-========================================================= */
 
 .msg {
   max-width: 70%;
@@ -934,9 +810,6 @@ input {
   }
 }
 
-
-/* Bot */
-
 .msg.bot {
   align-self: flex-start;
 
@@ -953,9 +826,6 @@ input {
     blur(2px);
 }
 
-
-/* User */
-
 .msg.user {
   align-self: flex-end;
 
@@ -967,11 +837,6 @@ input {
   background:
     rgba(201, 162, 75, 0.035);
 }
-
-
-/* =========================================================
-   CHAT INPUT
-========================================================= */
 
 .chat-input {
   position: relative;
@@ -1057,11 +922,6 @@ input {
     0 0 12px rgba(201, 162, 75, 0.8);
 }
 
-
-/* =========================================
-   PHONE PROJECTOR
-========================================= */
-
 .phone-projector {
   position: absolute;
 
@@ -1077,11 +937,6 @@ input {
 
   pointer-events: none;
 }
-
-
-/* =========================================
-   GLOW FROM PHONE
-========================================= */
 
 .phone-glow {
   position: absolute;
@@ -1108,11 +963,6 @@ input {
   pointer-events: none;
 }
 
-
-/* =========================================
-   PHONE
-========================================= */
-
 .phone {
   position: absolute;
 
@@ -1137,11 +987,6 @@ input {
   z-index: 3;
 }
 
-
-/* =========================================
-   PHONE CAMERA
-========================================= */
-
 .phone-camera {
   position: absolute;
 
@@ -1157,11 +1002,6 @@ input {
 
   background: #1b1710;
 }
-
-
-/* =========================================
-   PHONE SCREEN
-========================================= */
 
 .phone-screen {
   position: absolute;
@@ -1187,11 +1027,6 @@ input {
   justify-content: center;
 }
 
-
-/* =========================================
-   PHONE SYMBOL
-========================================= */
-
 .phone-symbol {
   font-size: 2rem;
 
@@ -1204,9 +1039,7 @@ input {
   animation: phonePulse 2s ease-in-out infinite;
 }
 
-
 @keyframes phonePulse {
-
   0%,
   100% {
     opacity: 0.5;
@@ -1217,25 +1050,13 @@ input {
     opacity: 1;
     transform: scale(1.1);
   }
-
 }
-
-
-/* =========================================================
-   BODY WHEN CHAT IS OPEN
-========================================================= */
 
 body.chat-open {
   overflow: hidden;
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media (max-width: 700px) {
-
   .chat-dialog {
     padding: 10px;
   }
@@ -1315,9 +1136,6 @@ body.chat-open {
       29px;
   }
 }
-/* =========================================================
-   DARK BACKGROUND
-========================================================= */
 
 .chat-overlay {
   position: absolute;
@@ -1333,13 +1151,6 @@ body.chat-open {
 
   -webkit-backdrop-filter: blur(3px);
 }
-
-
-/* =========================================================
-   HOLOGRAM CONTAINER
-   (delayed so it resolves just after the beam starts rising —
-   this is what sells the "projected from the phone" read)
-========================================================= */
 
 .hologram {
   position: relative;
@@ -1372,10 +1183,6 @@ body.chat-open {
   opacity: 1;
 }
 
-/* =========================================================
-   FLOATING CHAT
-========================================================= */
-
 .chat-shell {
   position: relative;
 
@@ -1405,7 +1212,6 @@ body.chat-open {
 }
 
 @keyframes hologram-float {
-
   0%,
   100% {
     transform:
@@ -1417,11 +1223,6 @@ body.chat-open {
       translateY(-26px);
   }
 }
-
-
-/* =========================================================
-   CHAT HEADER
-========================================================= */
 
 .chat-header {
   position: relative;
@@ -1443,9 +1244,6 @@ body.chat-open {
 .sigile {
   flex: none;
 }
-
-
-/* Header text */
 
 .header-text h2 {
   margin: 0;
@@ -1489,11 +1287,6 @@ body.chat-open {
   letter-spacing: 3px;
 }
 
-
-/* =========================================================
-   STATUS
-========================================================= */
-
 .status {
   display: flex;
 
@@ -1523,11 +1316,6 @@ body.chat-open {
   box-shadow:
     0 0 10px var(--gold-bright);
 }
-
-
-/* =========================================================
-   CLOSE
-========================================================= */
 
 .chat-close {
   margin-left: 18px;
@@ -1559,11 +1347,6 @@ body.chat-open {
     0 0 12px rgba(201, 162, 75, 0.8);
 }
 
-
-/* =========================================================
-   MESSAGES
-========================================================= */
-
 .messages {
   position: relative;
 
@@ -1594,11 +1377,6 @@ body.chat-open {
     rgba(201, 162, 75, 0.35);
 }
 
-
-/* =========================================================
-   MESSAGE
-========================================================= */
-/* GOLDEN MESSAGE BOXES */
 .msg {
   max-width: 70%;
   padding: 14px 20px;
@@ -1632,7 +1410,6 @@ body.chat-open {
   }
 }
 
-/* WRAITH'S MESSAGES */
 .msg.bot {
   align-self: flex-start;
 
@@ -1645,7 +1422,6 @@ body.chat-open {
     inset 0 0 20px rgba(231, 200, 116, 0.08);
 }
 
-/* USER'S MESSAGES */
 .msg.user {
   align-self: flex-end;
   text-align: right;
@@ -1654,10 +1430,6 @@ body.chat-open {
 
   background: rgba(201, 162, 75, 0.22);
 }
-
-/* =========================================================
-   TYPING
-========================================================= */
 
 .typing {
   display: flex;
@@ -1692,7 +1464,6 @@ body.chat-open {
 }
 
 @keyframes typing-dot {
-
   0%,
   100% {
     opacity: .2;
@@ -1708,11 +1479,6 @@ body.chat-open {
       translateY(-4px);
   }
 }
-
-
-/* =========================================================
-   CHAT INPUT
-========================================================= */
 
 .chat-input {
   position: relative;
@@ -1788,22 +1554,11 @@ body.chat-open {
     0 0 12px rgba(201, 162, 75, 0.8);
 }
 
-
-/* =========================================================
-   BODY WHEN CHAT IS OPEN
-========================================================= */
-
 body.chat-open {
   overflow: hidden;
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media (max-width: 700px) {
-
   .navbar {
     padding: 22px;
   }
@@ -1815,9 +1570,6 @@ body.chat-open {
   .navbar nav a {
     font-size: 8px;
   }
-
-
-  /* Hero */
 
   .hero {
     padding:
@@ -1869,9 +1621,6 @@ body.chat-open {
       20px;
   }
 
-
-  /* About */
-
   .about {
     display:
       block;
@@ -1894,9 +1643,6 @@ body.chat-open {
     margin-top:
       40px;
   }
-
-
-  /* Hologram */
 
   .chat-dialog {
     padding:
@@ -1988,16 +1734,9 @@ body.chat-open {
     padding-bottom:
       65px;
   }
-
 }
 
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
-
   html {
     scroll-behavior:
       auto;
@@ -2019,25 +1758,13 @@ body.chat-open {
     animation:
       none !important;
   }
-
 }
-/* =========================================
-   WRAITH WORLD
-========================================= */
 
 #wraith-world {
   width: 100%;
   background: #090705;
   color: #eee5d2;
 }
-
-/* =========================================
-   SEPARATE WRAITH PAGES
-========================================= */
-
-/* =========================================
-   SEPARATE WRAITH PAGES
-========================================= */
 
 #wraith-world>.wraith-intro,
 #wraith-world>.wraith-origin,
@@ -2059,9 +1786,6 @@ body.chat-open {
 
   border-top: 1px solid rgba(201, 162, 75, 0.15);
 }
-/* =========================================
-   WRAITH MAGIC FIELD
-========================================= */
 
 #wraith-world {
   position: relative;
@@ -2119,9 +1843,6 @@ body.chat-open {
   animation: magicFloat4 20s ease-in-out infinite;
 }
 
-
-/* FLOATING PARTICLES */
-
 .magic-particle {
   position: absolute;
   width: 4px;
@@ -2161,13 +1882,7 @@ body.chat-open {
   animation: particleFloat4 10s ease-in-out infinite;
 }
 
-
-/* =========================================
-   MAGIC MOVEMENT
-========================================= */
-
 @keyframes magicFloat1 {
-
   0%,
   100% {
     transform: translate(0, 0) scale(1);
@@ -2179,7 +1894,6 @@ body.chat-open {
 }
 
 @keyframes magicFloat2 {
-
   0%,
   100% {
     transform: translate(0, 0) scale(1);
@@ -2191,7 +1905,6 @@ body.chat-open {
 }
 
 @keyframes magicFloat3 {
-
   0%,
   100% {
     transform: translate(0, 0);
@@ -2203,7 +1916,6 @@ body.chat-open {
 }
 
 @keyframes magicFloat4 {
-
   0%,
   100% {
     transform: translate(0, 0);
@@ -2214,13 +1926,7 @@ body.chat-open {
   }
 }
 
-
-/* =========================================
-   MAGIC PARTICLE MOVEMENT
-========================================= */
-
 @keyframes particleFloat1 {
-
   0%,
   100% {
     transform: translate(0, 0);
@@ -2234,7 +1940,6 @@ body.chat-open {
 }
 
 @keyframes particleFloat2 {
-
   0%,
   100% {
     transform: translate(0, 0);
@@ -2248,7 +1953,6 @@ body.chat-open {
 }
 
 @keyframes particleFloat3 {
-
   0%,
   100% {
     transform: translate(0, 0);
@@ -2262,7 +1966,6 @@ body.chat-open {
 }
 
 @keyframes particleFloat4 {
-
   0%,
   100% {
     transform: translate(0, 0);
@@ -2274,9 +1977,6 @@ body.chat-open {
     opacity: 1;
   }
 }
-/* =========================================
-   CHAOS MAGIC CURSOR
-========================================= */
 
 body::before {
   content: "";
@@ -2311,9 +2011,6 @@ body::before {
   animation: chaosPulse 3s ease-in-out infinite;
 }
 
-
-/* SECOND MAGIC LAYER */
-
 body::after {
   content: "✦";
 
@@ -2344,11 +2041,7 @@ body::after {
   animation: magicSpark 1.8s ease-in-out infinite;
 }
 
-
-/* MAGIC BREATHING */
-
 @keyframes chaosPulse {
-
   0%,
   100% {
     opacity: 0.55;
@@ -2361,11 +2054,7 @@ body::after {
   }
 }
 
-
-/* FLOATING SPARK */
-
 @keyframes magicSpark {
-
   0%,
   100% {
     opacity: 0.5;
@@ -2377,12 +2066,8 @@ body::after {
     transform: translate(-50%, -50%) rotate(90deg) scale(1.2);
   }
 }
-/* =========================================
-   WRAITH INTRO
-========================================= */
 
 .wraith-intro {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2430,7 +2115,6 @@ body::after {
 }
 
 @keyframes magicPulse {
-
   0%,
   100% {
     transform: scale(0.9);
@@ -2469,7 +2153,6 @@ body::after {
   z-index: 2;
 }
 
-
 .wraith-tag {
   margin-bottom: 25px;
 
@@ -2479,7 +2162,6 @@ body::after {
 
   color: #a99d86;
 }
-
 
 .wraith-intro h1 {
   margin: 0;
@@ -2497,7 +2179,6 @@ body::after {
     0 0 70px rgba(201, 162, 75, 0.2);
 }
 
-
 .wraith-intro p {
   max-width: 500px;
 
@@ -2509,7 +2190,6 @@ body::after {
 
   color: #c9bfac;
 }
-
 
 .wraith-scroll {
   margin-top: 70px;
@@ -2523,9 +2203,7 @@ body::after {
   animation: wraithScroll 2s infinite ease-in-out;
 }
 
-
 @keyframes wraithScroll {
-
   0%,
   100% {
     opacity: 0.3;
@@ -2536,13 +2214,7 @@ body::after {
     opacity: 1;
     transform: translateY(7px);
   }
-
 }
-
-
-/* =========================================
-   SECTION TITLES
-========================================= */
 
 .wraith-block-title {
   position: absolute;
@@ -2556,7 +2228,6 @@ body::after {
   gap: 20px;
 }
 
-
 .wraith-block-title span {
   font-size: 0.65rem;
 
@@ -2564,7 +2235,6 @@ body::after {
 
   color: rgba(201, 162, 75, 0.5);
 }
-
 
 .wraith-block-title h2 {
   margin: 0;
@@ -2576,11 +2246,6 @@ body::after {
   color: #c9a24b;
 }
 
-
-/* =========================================
-   ABOUT
-========================================= */
-
 .wraith-block {
   background:
     radial-gradient(circle at 80% 50%,
@@ -2589,13 +2254,11 @@ body::after {
     #090705;
 }
 
-
 .wraith-block-content {
   max-width: 800px;
 
   margin-left: 10%;
 }
-
 
 .wraith-big-text {
   margin: 0 0 40px;
@@ -2611,7 +2274,6 @@ body::after {
   letter-spacing: 0.03em;
 }
 
-
 .wraith-block-content p:not(.wraith-big-text) {
   max-width: 650px;
 
@@ -2624,11 +2286,6 @@ body::after {
   color: #b9ae99;
 }
 
-
-/* =========================================
-   POWERS
-========================================= */
-
 .wraith-powers {
   background:
     radial-gradient(circle at 50% 50%,
@@ -2637,13 +2294,11 @@ body::after {
     #090705;
 }
 
-
 .power-list {
   width: min(900px, 100%);
 
   margin-left: 10%;
 }
-
 
 .power-item {
   display: flex;
@@ -2655,13 +2310,11 @@ body::after {
   border-bottom: 1px solid rgba(201, 162, 75, 0.15);
 }
 
-
 .power-item>span {
   color: #e7c874;
 
   font-size: 1.3rem;
 }
-
 
 .power-item h3 {
   margin: 0 0 10px;
@@ -2673,7 +2326,6 @@ body::after {
   color: #e7c874;
 }
 
-
 .power-item p {
   margin: 0;
 
@@ -2681,11 +2333,6 @@ body::after {
 
   line-height: 1.6;
 }
-
-
-/* =========================================
-   MISSION
-========================================= */
 
 .wraith-mission {
   justify-content: center;
@@ -2699,11 +2346,9 @@ body::after {
     #090705;
 }
 
-
 .mission-content {
   max-width: 900px;
 }
-
 
 .mission-main {
   margin: 0;
@@ -2720,7 +2365,6 @@ body::after {
     0 0 30px rgba(201, 162, 75, 0.25);
 }
 
-
 .mission-content p:not(.mission-main) {
   max-width: 550px;
 
@@ -2731,11 +2375,6 @@ body::after {
   line-height: 1.8;
 }
 
-
-/* =========================================
-   PERSONALITY
-========================================= */
-
 .wraith-personality {
   background:
     linear-gradient(120deg,
@@ -2743,7 +2382,6 @@ body::after {
       transparent 50%),
     #090705;
 }
-
 
 .personality-content {
   width: min(900px, 100%);
@@ -2756,7 +2394,6 @@ body::after {
 
   gap: 14px;
 }
-
 
 .personality-word {
   padding: 16px 22px;
@@ -2774,13 +2411,11 @@ body::after {
     background 0.3s ease;
 }
 
-
 .personality-word:hover {
   transform: translateY(-5px);
 
   background: rgba(201, 162, 75, 0.07);
 }
-
 
 .personality-quote {
   position: absolute;
@@ -2799,11 +2434,6 @@ body::after {
   font-style: italic;
 }
 
-
-/* =========================================
-   PURPOSE
-========================================= */
-
 .wraith-purpose {
   justify-content: center;
 
@@ -2816,11 +2446,9 @@ body::after {
     #090705;
 }
 
-
 .purpose-content {
   max-width: 800px;
 }
-
 
 .purpose-main {
   margin: 0;
@@ -2837,7 +2465,6 @@ body::after {
     0 0 35px rgba(201, 162, 75, 0.35);
 }
 
-
 .purpose-content p:not(.purpose-main) {
   max-width: 550px;
 
@@ -2847,7 +2474,6 @@ body::after {
 
   line-height: 1.8;
 }
-
 
 .profile-chat-button {
   margin-top: 45px;
@@ -2874,7 +2500,6 @@ body::after {
     box-shadow 0.3s ease;
 }
 
-
 .profile-chat-button:hover {
   background: #c9a24b;
 
@@ -2884,13 +2509,7 @@ body::after {
     0 0 30px rgba(201, 162, 75, 0.35);
 }
 
-
-/* =========================================
-   MOBILE
-========================================= */
-
 @media (max-width: 700px) {
-
   #wraith-world>.wraith-intro,
     #wraith-world>.wraith-origin,
     #wraith-world>.wraith-powers,
@@ -2900,17 +2519,14 @@ body::after {
       padding: 90px 25px;
     }
 
-
   .wraith-intro h1 {
     font-size: 4.5rem;
   }
-
 
   .wraith-block-title {
     top: 45px;
     left: 25px;
   }
-
 
   .wraith-block-content,
   .power-list,
@@ -2918,16 +2534,13 @@ body::after {
     margin-left: 0;
   }
 
-
   .wraith-big-text {
     font-size: 2.3rem;
   }
 
-
   .mission-main {
     font-size: 3rem;
   }
-
 
   .personality-quote {
     position: static;
@@ -2935,15 +2548,10 @@ body::after {
     margin-top: 40px;
   }
 
-
   .purpose-main {
     font-size: 4rem;
   }
-
 }
-/* =========================================
-   HOLOGRAM CHAT - RESPONSIVE SIZE
-========================================= */
 
 .chat-dialog {
   width: 100%;
@@ -2956,7 +2564,6 @@ body::after {
   align-items: center;
   justify-content: center;
 }
-
 
 .hologram {
   width: min(850px, 90vw);
@@ -2976,9 +2583,6 @@ body::after {
   position: relative;
 }
 
-
-/* MESSAGE AREA */
-
 .messages {
   flex: 1;
 
@@ -2991,9 +2595,6 @@ body::after {
   box-sizing: border-box;
 }
 
-
-/* INPUT AREA */
-
 .chat-input {
   width: 100%;
 
@@ -3004,7 +2605,6 @@ body::after {
   box-sizing: border-box;
 }
 
-
 .chat-input input {
   flex: 1;
 
@@ -3013,13 +2613,7 @@ body::after {
   box-sizing: border-box;
 }
 
-
-/* =========================================
-   SMALL SCREENS
-========================================= */
-
 @media (max-width: 700px) {
-
   .chat-dialog {
     padding: 20px;
   }
@@ -3032,26 +2626,16 @@ body::after {
   .messages {
     padding: 20px;
   }
-
 }
-/* =========================================
-   HOLOGRAM PHONE PROJECTOR
-========================================= */
 
 .hologram {
   position: relative;
 }
 
-
-/* Keep the actual chat above the projector */
-
 .chat-shell {
   position: relative;
   z-index: 5;
 }
-
-
-/* Phone sits underneath the hologram */
 
 .holo-phone {
   position: absolute;
@@ -3066,9 +2650,6 @@ body::after {
 
   z-index: 1;
 }
-
-
-/* Projected light comes FROM the phone */
 
 .holo-beam {
   position: absolute;
@@ -3096,8 +2677,6 @@ body::after {
   filter: blur(20px);
 }
 
-/* Keep chat content in front of the beam */
-
 .chat-shell,
 .chat-header,
 .messages,
@@ -3106,15 +2685,9 @@ body::after {
   z-index: 5;
 }
 
-
-/* Prevent the phone from pushing the chat layout */
-
 .hologram {
   overflow: visible;
 }
-/* =========================================
-   ORIGIN STORY
-========================================= */
 
 in {
   height: 100vh;
@@ -3128,9 +2701,6 @@ in {
 
   align-items: flex-start !important;
 }
-
-
-/* Main origin story area */
 
 .origin-content {
   width: min(1100px, 100%);
@@ -3149,9 +2719,6 @@ in {
   overflow: hidden;
 }
 
-
-/* Left heading */
-
 .origin-heading {
   position: sticky;
 
@@ -3159,7 +2726,6 @@ in {
 
   align-self: start;
 }
-
 
 .origin-heading span {
   display: block;
@@ -3172,7 +2738,6 @@ in {
 
   color: #a99d86;
 }
-
 
 .origin-heading h2 {
   margin: 0;
@@ -3189,9 +2754,6 @@ in {
     0 0 25px rgba(201, 162, 75, 0.2);
 }
 
-
-/* Scrollable story */
-
 .origin-text {
   height: 100%;
 
@@ -3207,7 +2769,6 @@ in {
     rgba(201, 162, 75, 0.4) transparent;
 }
 
-
 .origin-text p {
   max-width: 650px;
 
@@ -3220,13 +2781,9 @@ in {
   line-height: 1.9;
 }
 
-
 .origin-text strong {
   color: #e7c874;
 }
-
-
-/* Entity reveal */
 
 .origin-reveal {
   padding: 30px 0;
@@ -3242,24 +2799,16 @@ in {
   color: #eee5d2 !important;
 }
 
-
 .origin-final {
   padding-bottom: 80px;
 }
 
-
-/* =========================================
-   MOBILE
-========================================= */
-
 @media (max-width: 700px) {
-
   .wraith-origin {
     height: 100svh;
 
     padding: 80px 25px 30px !important;
   }
-
 
   .origin-content {
     height: calc(100svh - 140px);
@@ -3271,29 +2820,22 @@ in {
     overflow: hidden;
   }
 
-
   .origin-heading {
     position: static;
 
     margin-bottom: 35px;
   }
 
-
   .origin-heading h2 {
     font-size: 2.4rem;
   }
-
 
   .origin-text {
     height: calc(100% - 150px);
 
     padding-right: 15px;
   }
-
 }
-/* =================================
-   ORIGIN STORY
-   ================================= */
 
 .wraith-origin {
   position: relative;
@@ -3320,9 +2862,6 @@ in {
   color: #eee5d2;
 }
 
-
-/* small section number */
-
 .origin-label {
   position: absolute;
 
@@ -3334,9 +2873,6 @@ in {
 
   color: rgba(201, 162, 75, 0.55);
 }
-
-
-/* main two-column layout */
 
 .origin-layout {
   width: min(1150px, 100%);
@@ -3352,9 +2888,6 @@ in {
   align-items: center;
 }
 
-
-/* LEFT SIDE */
-
 .origin-title span {
   display: block;
 
@@ -3366,7 +2899,6 @@ in {
 
   color: #a99d86;
 }
-
 
 .origin-title h2 {
   margin: 0;
@@ -3383,7 +2915,6 @@ in {
     0 0 25px rgba(201, 162, 75, 0.25);
 }
 
-
 .origin-line {
   width: 70px;
 
@@ -3393,7 +2924,6 @@ in {
 
   background: #c9a24b;
 }
-
 
 .origin-title p {
   max-width: 300px;
@@ -3407,9 +2937,6 @@ in {
   color: #a99d86;
 }
 
-
-/* RIGHT SIDE */
-
 .origin-story {
   max-width: 650px;
 
@@ -3421,9 +2948,6 @@ in {
 
   box-sizing: border-box;
 }
-
-
-/* scrollbar */
 
 .origin-story::-webkit-scrollbar {
   width: 3px;
@@ -3437,9 +2961,6 @@ in {
   background: rgba(201, 162, 75, 0.35);
 }
 
-
-/* paragraphs */
-
 .origin-story>p {
   margin: 0 0 25px;
 
@@ -3450,13 +2971,9 @@ in {
   color: #b9ae99;
 }
 
-
 .origin-story strong {
   color: #e7c874;
 }
-
-
-/* dramatic discovery */
 
 .origin-reveal {
   margin: 35px 0;
@@ -3467,7 +2984,6 @@ in {
 
   border-bottom: 1px solid rgba(201, 162, 75, 0.25);
 }
-
 
 .origin-reveal span {
   display: block;
@@ -3481,7 +2997,6 @@ in {
   color: #a99d86;
 }
 
-
 .origin-reveal strong {
   display: block;
 
@@ -3489,7 +3004,6 @@ in {
 
   color: #eee5d2;
 }
-
 
 .origin-reveal em {
   display: block;
@@ -3503,9 +3017,6 @@ in {
   color: #e7c874;
 }
 
-
-/* ending */
-
 .origin-ending {
   margin-top: 40px;
 
@@ -3514,7 +3025,6 @@ in {
   border-top: 1px solid rgba(201, 162, 75, 0.2);
 }
 
-
 .origin-ending>span {
   font-size: 0.6rem;
 
@@ -3522,7 +3032,6 @@ in {
 
   color: #a99d86;
 }
-
 
 .origin-ending p {
   margin: 15px 0;
@@ -3533,7 +3042,6 @@ in {
 
   color: #e7c874;
 }
-
 
 .origin-ending small {
   display: block;
@@ -3547,11 +3055,7 @@ in {
   color: #a99d86;
 }
 
-
-/* MOBILE */
-
 @media (max-width: 700px) {
-
   .wraith-origin {
     height: 100svh;
     min-height: 100svh;
@@ -3604,9 +3108,6 @@ in {
     font-size: 1.15rem;
   }
 }
-/* =========================
-   ME SECTION
-   ========================= */
 
 .me-section {
   width: 100%;
@@ -3640,9 +3141,6 @@ in {
 
   gap: 80px;
 }
-
-
-/* LEFT SIDE */
 
 .me-text {
   flex: 1;
@@ -3688,9 +3186,6 @@ in {
   line-height: 1.8;
 }
 
-
-/* I LIKE */
-
 .me-likes {
   border-left: 1px solid rgba(201, 162, 75, 0.35);
 
@@ -3716,9 +3211,6 @@ in {
   font-size: 0.9rem;
   line-height: 1.5;
 }
-
-
-/* RIGHT SIDE IMAGE */
 
 .me-image {
   position: relative;
@@ -3746,9 +3238,6 @@ in {
   z-index: 2;
 }
 
-
-/* GOLDEN MAGIC BEHIND IMAGE */
-
 .me-image-glow {
   position: absolute;
 
@@ -3773,7 +3262,6 @@ in {
 }
 
 @keyframes meGlow {
-
   0%,
   100% {
     transform: scale(0.95);
@@ -3786,13 +3274,7 @@ in {
   }
 }
 
-
-/* =========================
-   MOBILE
-   ========================= */
-
 @media (max-width: 700px) {
-
   .me-section {
     padding: 90px 25px;
   }
