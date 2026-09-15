@@ -1,0 +1,3825 @@
+:root {
+  --ink: #090705;
+  --panel: #100c08;
+  --gold: #c9a24b;
+  --gold-bright: #e7c874;
+  --parchment: #eee5d2;
+  --parchment-dim: #a99d86;
+  --line: rgba(201, 162, 75, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--parchment);
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+
+/* =========================================================
+   SITE
+========================================================= */
+
+#site {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at 72% 45%,
+      rgba(201, 162, 75, 0.055),
+      transparent 28%),
+    var(--ink);
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 28px 5vw;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 20;
+}
+
+.logo {
+  color: var(--parchment);
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  letter-spacing: 4px;
+}
+
+.navbar nav {
+  display: flex;
+
+  gap: 30px;
+}
+
+.navbar nav a {
+  color: var(--parchment-dim);
+
+  text-decoration: none;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  transition: color 0.25s;
+}
+
+.navbar nav a:hover {
+  color: var(--gold-bright);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 120px 10vw 90px;
+  overflow: hidden;
+}
+
+
+.hero-copy {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 720px;
+}
+
+.eyebrow {
+  margin: 0 0 30px;
+
+  color: var(--gold);
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(64px, 9vw, 126px);
+
+  font-weight: 400;
+
+  line-height: 0.82;
+
+  letter-spacing: -5px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero-subtitle {
+  margin: 34px 0 0;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(23px, 2.5vw, 34px);
+}
+
+.hero-description {
+  max-width: 390px;
+
+  margin: 12px 0 0;
+
+  color: var(--parchment-dim);
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   HERO ACTIONS
+========================================================= */
+
+.hero-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+  margin-top: 34px;
+}
+
+.chat-trigger,
+.text-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  border: 0;
+
+  background: none;
+
+  text-decoration: none;
+
+  color: var(--parchment);
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  padding: 0;
+}
+
+.chat-trigger span,
+.text-link span {
+  color: var(--gold);
+
+  font-size: 17px;
+
+  transition: transform 0.2s;
+}
+
+.chat-trigger:hover,
+.text-link:hover {
+  color: var(--gold-bright);
+}
+
+.chat-trigger:hover span {
+  transform:
+    translate(2px, -2px);
+}
+
+.text-link:hover span {
+  transform:
+    translateY(3px);
+}
+
+
+/* =========================================================
+   HERO ACCENT
+========================================================= */
+
+.hero-accent {
+  position: absolute;
+
+  right: 10vw;
+
+  top: 50%;
+
+  width: 30vw;
+  height: 30vw;
+
+  max-width: 420px;
+  max-height: 420px;
+
+  transform:
+    translateY(-50%);
+
+  border:
+      1px solid rgba(201, 162, 75, 0.18);
+
+  border-radius: 50%;
+}
+
+.hero-accent:before,
+.hero-accent:after {
+  content: "";
+
+  position: absolute;
+
+  border:
+    1px solid rgba(201, 162, 75, 0.10);
+
+  border-radius: 50%;
+
+  inset: 12%;
+}
+
+.hero-accent:after {
+  inset: 28%;
+
+  border-color:
+    rgba(201, 162, 75, 0.16);
+}
+
+.hero-accent span {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  top: 17%;
+  right: 22%;
+
+  box-shadow:
+    0 0 18px rgba(231, 200, 116, 0.55);
+}
+
+.scroll-hint {
+  position: absolute;
+
+  right: 5vw;
+
+  bottom: 28px;
+
+  margin: 0;
+
+  color: var(--parchment-dim);
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  writing-mode: vertical-rl;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+/* =========================================
+   ABOUT LAYOUT
+========================================= */
+
+.about-layout {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 80px;
+}
+
+
+/* =========================================
+   ABOUT IMAGE
+========================================= */
+
+.about-image {
+  position: relative;
+
+  width: 42%;
+  min-height: 600px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  order: 2;
+}
+
+
+/* GLOW BEHIND WRAITH */
+
+.about-image::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle,
+      rgba(231, 200, 116, 0.35),
+      rgba(201, 162, 75, 0.12) 40%,
+      transparent 70%);
+
+  filter: blur(25px);
+
+  z-index: 0;
+
+  animation: wraithGlow 4s ease-in-out infinite;
+}
+
+
+/* SECOND MAGIC GLOW */
+
+.about-image::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 500px;
+
+  background: radial-gradient(ellipse,
+      rgba(201, 162, 75, 0.18),
+      transparent 70%);
+
+  filter: blur(35px);
+
+  z-index: 0;
+
+  transform: rotate(-15deg);
+
+  animation: wraithAura 5s ease-in-out infinite alternate;
+}
+
+
+/* CHARACTER */
+
+.about-image img {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 430px;
+
+  max-height: 650px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 0 15px rgba(231, 200, 116, 0.35)) drop-shadow(0 0 45px rgba(201, 162, 75, 0.2));
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+
+.about-image:hover img {
+  transform: translateY(-8px) scale(1.02);
+
+  filter:
+    drop-shadow(0 0 20px rgba(231, 200, 116, 0.5)) drop-shadow(0 0 70px rgba(201, 162, 75, 0.3));
+}
+
+
+/* =========================================
+   GLOW ANIMATION
+========================================= */
+
+@keyframes wraithGlow {
+
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes wraithAura {
+
+  0% {
+    transform: rotate(-15deg) scale(0.9);
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: rotate(15deg) scale(1.1);
+    opacity: 0.8;
+  }
+
+}
+
+
+/* =========================================
+   ABOUT TEXT
+========================================= */
+
+.wraith-block-content {
+  width: 55%;
+  max-width: 700px;
+
+  margin-left: 0;
+
+  order: 1;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+#intro {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  background: #000;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition:
+    opacity 1.2s;
+}
+
+#intro.fade-out {
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+#intro video {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+#intro:after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(ellipse at center,
+      transparent 40%,
+      rgba(0, 0, 0, 0.82) 100%);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HOLOGRAPHIC CHAT
+========================================================= */
+
+.chat-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.6s ease,
+    visibility 0.6s ease;
+}
+
+.chat-dialog.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   DARK BACKGROUND
+========================================================= */
+
+.chat-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(201, 162, 75, 0.025),
+      rgba(5, 4, 3, 0.97) 65%);
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* =========================================================
+   HOLOGRAM CONTAINER
+========================================================= */
+
+.hologram {
+  position: relative;
+
+  width: min(850px, 95vw);
+  height: min(780px, 92vh);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform:
+    translateY(30px) scale(0.94);
+
+  opacity: 0;
+
+  transition:
+    transform 0.9s cubic-bezier(.16, 1, .3, 1) 0.45s,
+    opacity 0.7s ease 0.55s;
+}
+
+.chat-dialog.is-open .hologram {
+  transform:
+    translateY(0) scale(1);
+
+  opacity: 1;
+}
+
+  
+/* =========================================================
+   HOLOGRAPHIC CHAT
+========================================================= */
+
+.chat-shell {
+  position: relative;
+
+  z-index: 5;
+
+  width: min(650px, 80vw);
+  height: min(560px, 67vh);
+
+  display: flex;
+  flex-direction: column;
+
+  background:linear-gradient(145deg,
+      rgba(18, 15, 11, 0.72),
+      rgba(7, 6, 5, 0.82));
+
+  border:1px solid rgba(231, 200, 116, 0.18);
+
+  box-shadow:0 25px 80px rgba(0, 0, 0, 0.45),
+    0 0 35px rgba(201, 162, 75, 0.035);
+  
+  transform:
+    translateY(-20px);
+
+  animation:
+    hologram-float 4s ease-in-out infinite;
+}
+
+@keyframes hologram-float {
+
+  0%,
+  100% {
+    transform:
+      translateY(-20px);
+  }
+
+  50% {
+    transform:
+      translateY(-26px);
+  }
+}
+
+
+/* =========================================================
+   HOLOGRAM TEXT GLOW
+========================================================= */
+
+.chat-shell h2,
+.chat-shell p,
+.chat-shell .msg,
+.chat-shell input,
+.chat-shell button {
+  text-shadow:
+    0 0 10px rgba(201, 162, 75, 0.18);
+}
+
+
+/* =========================================================
+   CHAT HEADER
+========================================================= */
+
+.chat-header {
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+  align-items: flex-start;
+
+  padding:
+    15px 10px 25px;
+
+  background: transparent;
+
+  border: none;
+}
+
+
+/* FIXED: sigil, not sigile */
+
+.sigil {
+  flex: none;
+
+  width: 28px;
+  height: 28px;
+
+  margin-right: 14px;
+
+  border:
+    1px solid rgba(201, 162, 75, 0.5);
+
+  border-radius: 50%;
+
+  position: relative;
+
+  box-shadow:
+    0 0 12px rgba(201, 162, 75, 0.18);
+}
+
+.sigil::before {
+  content: "✦";
+
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--gold-bright);
+
+  font-size: 13px;
+
+  text-shadow:
+    0 0 12px rgba(231, 200, 116, 0.8);
+}
+
+
+/* Header text */
+
+.header-text {
+  flex: 1;
+}
+
+.header-text h2 {
+  margin: 0;
+
+  color: var(--parchment);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(30px, 4vw, 48px);
+
+  font-weight: 400;
+
+  line-height: 0.95;
+
+  text-shadow:
+    0 0 16px rgba(201, 162, 75, 0.35);
+}
+
+.header-text p {
+  margin:
+    9px 0 0;
+
+  color:
+    var(--parchment-dim);
+
+  font-size:
+    9px;
+
+  letter-spacing:
+    1px;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  margin-left: auto;
+  margin-top: 8px;
+
+  color:
+    var(--parchment-dim);
+
+  font-size:
+    8px;
+
+  letter-spacing:
+    2px;
+}
+
+.status i {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background:
+    var(--gold-bright);
+
+  box-shadow:
+    0 0 10px var(--gold-bright);
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.chat-close {
+  margin-left: 18px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color:
+    var(--parchment-dim);
+
+  font-size:
+    27px;
+
+  cursor: pointer;
+
+  transition:
+    color .2s ease,
+    transform .2s ease;
+}
+
+.chat-close:hover {
+  color:
+    var(--gold-bright);
+
+  transform:
+    rotate(90deg);
+
+  text-shadow:
+    0 0 12px rgba(201, 162, 75, 0.8);
+}
+
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.messages {
+  position: relative;
+
+  z-index: 5;
+
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding:
+    20px 10px 70px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 13px;
+
+  background: transparent;
+}
+
+.messages::-webkit-scrollbar {
+  width: 3px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background:
+    rgba(201, 162, 75, 0.35);
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.msg {
+  max-width: 70%;
+
+  padding:
+    12px 16px;
+
+  color:
+    var(--parchment);
+
+  font-size:
+    13px;
+
+  line-height:
+    1.65;
+
+  animation:
+    message-in .4s ease;
+}
+
+@keyframes message-in {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* Bot */
+
+.msg.bot {
+  align-self: flex-start;
+
+  border-left:
+    2px solid var(--gold);
+
+  background:
+    rgba(201, 162, 75, 0.055);
+
+  box-shadow:
+    0 0 20px rgba(201, 162, 75, 0.04);
+
+  backdrop-filter:
+    blur(2px);
+}
+
+
+/* User */
+
+.msg.user {
+  align-self: flex-end;
+
+  text-align: right;
+
+  border-right:
+    2px solid var(--gold);
+
+  background:
+    rgba(201, 162, 75, 0.035);
+}
+
+
+/* =========================================================
+   CHAT INPUT
+========================================================= */
+
+.chat-input {
+  position: relative;
+
+  z-index: 10;
+
+  display: flex;
+
+  margin:
+    0 10px 25px;
+
+  padding:
+    10px 2px;
+
+  border-bottom:
+    1px solid rgba(201, 162, 75, 0.55);
+
+  background:
+    transparent;
+}
+
+.chat-input input {
+  flex: 1;
+
+  min-width: 0;
+
+  padding:
+    10px 5px;
+
+  border: none;
+
+  outline: none;
+
+  background:
+    transparent;
+
+  color:
+    var(--parchment);
+
+  font-size:
+    13px;
+}
+
+.chat-input input::placeholder {
+  color:
+    var(--parchment-dim);
+}
+
+.chat-input button {
+  padding:
+    10px 4px;
+
+  border: none;
+
+  background:
+    transparent;
+
+  color:
+    var(--gold);
+
+  font-size:
+    9px;
+
+  letter-spacing:
+    2px;
+
+  cursor: pointer;
+
+  transition:
+    color .2s,
+    transform .2s,
+    text-shadow .2s;
+}
+
+.chat-input button:hover {
+  color:
+    var(--gold-bright);
+
+  transform:
+    translateX(3px);
+
+  text-shadow:
+    0 0 12px rgba(201, 162, 75, 0.8);
+}
+
+
+/* =========================================
+   PHONE PROJECTOR
+========================================= */
+
+.phone-projector {
+  position: absolute;
+
+  left: 50%;
+  bottom: -180px;
+
+  width: 180px;
+  height: 320px;
+
+  transform: translateX(-50%);
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   GLOW FROM PHONE
+========================================= */
+
+.phone-glow {
+  position: absolute;
+
+  left: 50%;
+  top: -260px;
+
+  width: 520px;
+  height: 520px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(ellipse,
+      rgba(231, 200, 116, 0.22),
+      rgba(201, 162, 75, 0.08) 35%,
+      transparent 70%);
+
+  filter: blur(25px);
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   PHONE
+========================================= */
+
+.phone {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 130px;
+  height: 260px;
+
+  transform: translateX(-50%);
+
+  border: 2px solid rgba(231, 200, 116, 0.7);
+
+  border-radius: 24px;
+
+  background: #080604;
+
+  box-shadow:
+    0 0 15px rgba(231, 200, 116, 0.35),
+    0 0 45px rgba(201, 162, 75, 0.2);
+
+  z-index: 3;
+}
+
+
+/* =========================================
+   PHONE CAMERA
+========================================= */
+
+.phone-camera {
+  position: absolute;
+
+  top: 12px;
+  left: 50%;
+
+  width: 35px;
+  height: 7px;
+
+  transform: translateX(-50%);
+
+  border-radius: 10px;
+
+  background: #1b1710;
+}
+
+
+/* =========================================
+   PHONE SCREEN
+========================================= */
+
+.phone-screen {
+  position: absolute;
+
+  top: 32px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+
+  border-radius: 17px;
+
+  background:
+    radial-gradient(circle at center,
+      rgba(231, 200, 116, 0.12),
+      transparent 60%),
+    #0b0805;
+
+  border: 1px solid rgba(231, 200, 116, 0.2);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================
+   PHONE SYMBOL
+========================================= */
+
+.phone-symbol {
+  font-size: 2rem;
+
+  color: #e7c874;
+
+  text-shadow:
+    0 0 10px rgba(231, 200, 116, 0.8),
+    0 0 30px rgba(201, 162, 75, 0.5);
+
+  animation: phonePulse 2s ease-in-out infinite;
+}
+
+
+@keyframes phonePulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+}
+
+
+/* =========================================================
+   BODY WHEN CHAT IS OPEN
+========================================================= */
+
+body.chat-open {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .chat-dialog {
+    padding: 10px;
+  }
+
+  .hologram {
+    width: 100vw;
+    height: 88vh;
+  }
+
+  .chat-shell {
+    width: 88vw;
+    height: 67vh;
+  }
+
+  .chat-header {
+    padding:
+      15px 0 20px;
+  }
+
+  .header-text h2 {
+    font-size:
+      clamp(28px, 9vw, 40px);
+  }
+
+  .messages {
+    padding:
+      15px 0 65px;
+  }
+
+  .msg {
+    max-width:
+      82%;
+
+    font-size:
+      12px;
+  }
+
+  .chat-input {
+    margin:
+      0 0 25px;
+  }
+
+  .status {
+    display:
+      none;
+  }
+
+  .holo-beam {
+    width:
+      260px;
+
+    height:
+      500px;
+
+    bottom:
+      75px;
+  }
+
+  .phone-projector {
+    bottom:
+      10px;
+  }
+
+  .phone {
+    width:
+      155px;
+
+    height:
+      48px;
+  }
+
+  .phone-screen {
+    width:
+      125px;
+
+    height:
+      29px;
+  }
+}
+/* =========================================================
+   DARK BACKGROUND
+========================================================= */
+
+.chat-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 50% 60%,
+      rgba(201, 162, 75, 0.08),
+      rgba(5, 4, 3, 0.94) 70%);
+
+  backdrop-filter: blur(3px);
+
+  -webkit-backdrop-filter: blur(3px);
+}
+
+
+/* =========================================================
+   HOLOGRAM CONTAINER
+   (delayed so it resolves just after the beam starts rising —
+   this is what sells the "projected from the phone" read)
+========================================================= */
+
+.hologram {
+  position: relative;
+
+  width:
+    min(850px, 95vw);
+
+  height:
+    min(780px, 92vh);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform:
+    translateY(30px) scale(0.94);
+
+  opacity: 0;
+
+  transition:
+    transform 0.9s cubic-bezier(.16, 1, .3, 1) 0.45s,
+    opacity 0.7s ease 0.55s;
+}
+
+.chat-dialog.is-open .hologram {
+  transform:
+    translateY(0) scale(1);
+
+  opacity: 1;
+}
+
+/* =========================================================
+   FLOATING CHAT
+========================================================= */
+
+.chat-shell {
+  position: relative;
+
+  z-index: 5;
+
+  width:
+    min(650px, 80vw);
+
+  height:
+    min(560px, 67vh);
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: transparent;
+
+  border: none;
+
+  box-shadow: none;
+
+  transform:
+    translateY(-20px);
+
+  animation:
+    hologram-float 4s ease-in-out infinite;
+}
+
+@keyframes hologram-float {
+
+  0%,
+  100% {
+    transform:
+      translateY(-20px);
+  }
+
+  50% {
+    transform:
+      translateY(-26px);
+  }
+}
+
+
+/* =========================================================
+   CHAT HEADER
+========================================================= */
+
+.chat-header {
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  padding:
+    15px 10px 25px;
+
+  background: transparent;
+
+  border: none;
+}
+
+.sigile {
+  flex: none;
+}
+
+
+/* Header text */
+
+.header-text h2 {
+  margin: 0;
+
+  color: var(--parchment);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(30px, 4vw, 48px);
+
+  font-weight: 400;
+
+  line-height: 0.95;
+
+  text-shadow:
+    0 0 16px rgba(201, 162, 75, 0.22);
+}
+
+.header-text p {
+  margin: 9px 0 0;
+
+  color: var(--parchment-dim);
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+}
+
+.chat-label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: var(--gold);
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  margin-left: auto;
+
+  margin-top: 8px;
+
+  color: var(--parchment-dim);
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+}
+
+.status i {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--gold-bright);
+
+  box-shadow:
+    0 0 10px var(--gold-bright);
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.chat-close {
+  margin-left: 18px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--parchment-dim);
+
+  font-size: 27px;
+
+  cursor: pointer;
+
+  transition:
+    color .2s ease,
+    transform .2s ease;
+}
+
+.chat-close:hover {
+  color: var(--gold-bright);
+
+  transform:
+    rotate(90deg);
+
+  text-shadow:
+    0 0 12px rgba(201, 162, 75, 0.8);
+}
+
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.messages {
+  position: relative;
+
+  z-index: 5;
+
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding:
+    20px 10px 70px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 13px;
+
+  background: transparent;
+}
+
+.messages::-webkit-scrollbar {
+  width: 3px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background:
+    rgba(201, 162, 75, 0.35);
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+/* GOLDEN MESSAGE BOXES */
+.msg {
+  max-width: 70%;
+  padding: 14px 20px;
+
+  color: #fff4d6;
+  font-size: 13px;
+  line-height: 1.65;
+
+  background: rgba(201, 162, 75, 0.25);
+  border: 1px solid rgba(231, 200, 116, 0.7);
+  border-radius: 3px;
+
+  box-shadow:
+    0 0 20px rgba(201, 162, 75, 0.15),
+    inset 0 0 15px rgba(231, 200, 116, 0.08);
+
+  backdrop-filter: blur(4px);
+
+  animation: message-in .4s ease;
+}
+
+@keyframes message-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* WRAITH'S MESSAGES */
+.msg.bot {
+  align-self: flex-start;
+
+  border-left: 2px solid #e7c874;
+
+  background: rgba(201, 162, 75, 0.3);
+
+  box-shadow:
+    0 0 25px rgba(201, 162, 75, 0.18),
+    inset 0 0 20px rgba(231, 200, 116, 0.08);
+}
+
+/* USER'S MESSAGES */
+.msg.user {
+  align-self: flex-end;
+  text-align: right;
+
+  border-right: 2px solid #e7c874;
+
+  background: rgba(201, 162, 75, 0.22);
+}
+
+/* =========================================================
+   TYPING
+========================================================= */
+
+.typing {
+  display: flex;
+
+  gap: 5px;
+
+  padding:
+    10px 5px;
+}
+
+.typing span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  box-shadow:
+    0 0 8px var(--gold);
+
+  animation:
+    typing-dot 1.2s infinite;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: .15s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: .3s;
+}
+
+@keyframes typing-dot {
+
+  0%,
+  100% {
+    opacity: .2;
+
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translateY(-4px);
+  }
+}
+
+
+/* =========================================================
+   CHAT INPUT
+========================================================= */
+
+.chat-input {
+  position: relative;
+
+  z-index: 10;
+
+  display: flex;
+
+  margin:
+    0 10px 25px;
+
+  padding:
+    10px 2px;
+
+  border-bottom:
+    1px solid rgba(201, 162, 75, 0.55);
+
+  background: transparent;
+}
+
+.chat-input input {
+  flex: 1;
+
+  min-width: 0;
+
+  padding:
+    10px 5px;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: var(--parchment);
+
+  font-size: 13px;
+}
+
+.chat-input input::placeholder {
+  color: var(--parchment-dim);
+}
+
+.chat-input button {
+  padding:
+    10px 4px;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--gold);
+
+  font-size: 13px;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition:
+    color .2s,
+    transform .2s,
+    text-shadow .2s;
+}
+
+.chat-input button:hover {
+  color: var(--gold-bright);
+
+  transform:
+    translateX(3px);
+
+  text-shadow:
+    0 0 12px rgba(201, 162, 75, 0.8);
+}
+
+
+/* =========================================================
+   BODY WHEN CHAT IS OPEN
+========================================================= */
+
+body.chat-open {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .navbar {
+    padding: 22px;
+  }
+
+  .navbar nav {
+    gap: 18px;
+  }
+
+  .navbar nav a {
+    font-size: 8px;
+  }
+
+
+  /* Hero */
+
+  .hero {
+    padding:
+      120px 25px 90px;
+
+    align-items:
+      flex-start;
+  }
+
+  .hero-copy {
+    margin-top:
+      10vh;
+  }
+
+  .hero h1 {
+    font-size:
+      clamp(60px, 17vw, 90px);
+
+    letter-spacing:
+      -3px;
+  }
+
+  .hero-actions {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+    gap: 19px;
+  }
+
+  .hero-accent {
+    right:
+      -20vw;
+
+    top:
+      58%;
+
+    width:
+      75vw;
+
+    height:
+      75vw;
+  }
+
+  .scroll-hint {
+    right:
+      20px;
+  }
+
+
+  /* About */
+
+  .about {
+    display:
+      block;
+
+    padding:
+      120px 25px 90px;
+  }
+
+  .section-label {
+    margin-bottom:
+      55px;
+  }
+
+  .about h2 {
+    font-size:
+      clamp(42px, 12vw, 64px);
+  }
+
+  .about-copy {
+    margin-top:
+      40px;
+  }
+
+
+  /* Hologram */
+
+  .chat-dialog {
+    padding:
+      10px;
+  }
+
+  .hologram {
+    width:
+      100vw;
+
+    height:
+      88vh;
+  }
+
+  .chat-shell {
+    width:
+      88vw;
+
+    height:
+      67vh;
+  }
+
+  .chat-header {
+    padding:
+      15px 0 20px;
+  }
+
+  .header-text h2 {
+    font-size:
+      clamp(28px, 9vw, 40px);
+  }
+
+  .messages {
+    padding:
+      15px 0 65px;
+  }
+
+  .msg {
+    max-width:
+      82%;
+
+    font-size:
+      12px;
+  }
+
+  .chat-input {
+    margin:
+      0 0 25px;
+  }
+
+  .status {
+    display:
+      none;
+  }
+
+  .holo-beam {
+    width:
+      260px;
+
+    height:
+      500px;
+
+    bottom:
+      75px;
+  }
+
+  .phone-projector {
+    bottom:
+      10px;
+  }
+
+  .phone {
+    width:
+      155px;
+
+    height:
+      48px;
+  }
+
+  .phone-screen {
+    width:
+      125px;
+
+    height:
+      29px;
+  }
+
+  .chat-shell .messages {
+    padding-bottom:
+      65px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior:
+      auto;
+  }
+
+  #intro,
+  .chat-dialog,
+  .chat-shell,
+  .chat-close,
+  .msg,
+  .typing span,
+  .holo-beam,
+  .phone-glow,
+  .messages::before,
+  .messages::after {
+    transition:
+      none !important;
+
+    animation:
+      none !important;
+  }
+
+}
+/* =========================================
+   WRAITH WORLD
+========================================= */
+
+#wraith-world {
+  width: 100%;
+  background: #090705;
+  color: #eee5d2;
+}
+
+/* =========================================
+   SEPARATE WRAITH PAGES
+========================================= */
+
+/* =========================================
+   SEPARATE WRAITH PAGES
+========================================= */
+
+#wraith-world>.wraith-intro,
+#wraith-world>.wraith-origin,
+#wraith-world>.wraith-powers,
+#wraith-world>.wraith-mission,
+#wraith-world>.wraith-personality,
+#wraith-world>.wraith-purpose {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  padding: 100px 9vw;
+
+  border-top: 1px solid rgba(201, 162, 75, 0.15);
+}
+/* =========================================
+   WRAITH MAGIC FIELD
+========================================= */
+
+#wraith-world {
+  position: relative;
+  overflow: hidden;
+}
+
+.magic-field {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.magic-orb {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+
+  background: radial-gradient(circle,
+      rgba(231, 200, 116, 0.16),
+      rgba(201, 162, 75, 0.06) 35%,
+      transparent 70%);
+
+  filter: blur(10px);
+  opacity: 0.6;
+}
+
+.orb-1 {
+  left: 10%;
+  top: 20%;
+  animation: magicFloat1 14s ease-in-out infinite;
+}
+
+.orb-2 {
+  right: 15%;
+  top: 65%;
+  animation: magicFloat2 18s ease-in-out infinite;
+}
+
+.orb-3 {
+  left: 55%;
+  top: 10%;
+  width: 120px;
+  height: 120px;
+  animation: magicFloat3 16s ease-in-out infinite;
+}
+
+.orb-4 {
+  left: 30%;
+  bottom: 5%;
+  width: 140px;
+  height: 140px;
+  animation: magicFloat4 20s ease-in-out infinite;
+}
+
+
+/* FLOATING PARTICLES */
+
+.magic-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+
+  background: #e7c874;
+
+  box-shadow:
+    0 0 8px rgba(231, 200, 116, 0.8),
+    0 0 20px rgba(201, 162, 75, 0.4);
+
+  opacity: 0.7;
+}
+
+.particle-1 {
+  left: 20%;
+  top: 70%;
+  animation: particleFloat1 9s ease-in-out infinite;
+}
+
+.particle-2 {
+  left: 75%;
+  top: 25%;
+  animation: particleFloat2 11s ease-in-out infinite;
+}
+
+.particle-3 {
+  left: 60%;
+  top: 80%;
+  animation: particleFloat3 13s ease-in-out infinite;
+}
+
+.particle-4 {
+  left: 40%;
+  top: 35%;
+  animation: particleFloat4 10s ease-in-out infinite;
+}
+
+
+/* =========================================
+   MAGIC MOVEMENT
+========================================= */
+
+@keyframes magicFloat1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(180px, 100px) scale(1.3);
+  }
+}
+
+@keyframes magicFloat2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-150px, -120px) scale(1.25);
+  }
+}
+
+@keyframes magicFloat3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-120px, 180px);
+  }
+}
+
+@keyframes magicFloat4 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(150px, -150px);
+  }
+}
+
+
+/* =========================================
+   MAGIC PARTICLE MOVEMENT
+========================================= */
+
+@keyframes particleFloat1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translate(100px, -150px);
+    opacity: 1;
+  }
+}
+
+@keyframes particleFloat2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: translate(-120px, 100px);
+    opacity: 1;
+  }
+}
+
+@keyframes particleFloat3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translate(80px, -120px);
+    opacity: 1;
+  }
+}
+
+@keyframes particleFloat4 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: translate(-100px, 140px);
+    opacity: 1;
+  }
+}
+/* =========================================
+   CHAOS MAGIC CURSOR
+========================================= */
+
+body::before {
+  content: "";
+  position: fixed;
+
+  width: 320px;
+  height: 320px;
+
+  left: var(--mouse-x, 50%);
+  top: var(--mouse-y, 50%);
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle,
+      rgba(231, 200, 116, 0.18) 0%,
+      rgba(201, 162, 75, 0.10) 22%,
+      rgba(201, 162, 75, 0.05) 42%,
+      transparent 72%);
+
+  filter: blur(14px);
+
+  pointer-events: none;
+  z-index: 1;
+
+  transition:
+    left 0.12s ease-out,
+    top 0.12s ease-out;
+
+  animation: chaosPulse 3s ease-in-out infinite;
+}
+
+
+/* SECOND MAGIC LAYER */
+
+body::after {
+  content: "✦";
+
+  position: fixed;
+
+  left: var(--mouse-x, 50%);
+  top: var(--mouse-y, 50%);
+
+  transform: translate(-50%, -50%);
+
+  color: #e7c874;
+
+  font-size: 18px;
+
+  text-shadow:
+    0 0 8px rgba(231, 200, 116, 0.9),
+    0 0 20px rgba(201, 162, 75, 0.7),
+    0 0 40px rgba(201, 162, 75, 0.4);
+
+  pointer-events: none;
+
+  z-index: 2;
+
+  transition:
+    left 0.18s ease-out,
+    top 0.18s ease-out;
+
+  animation: magicSpark 1.8s ease-in-out infinite;
+}
+
+
+/* MAGIC BREATHING */
+
+@keyframes chaosPulse {
+
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+
+/* FLOATING SPARK */
+
+@keyframes magicSpark {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(90deg) scale(1.2);
+  }
+}
+/* =========================================
+   WRAITH INTRO
+========================================= */
+
+.wraith-intro {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(circle at center,
+      rgba(201, 162, 75, 0.12),
+      transparent 45%),
+    #090705;
+}
+.wraith-intro::before {
+  content: "";
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle,
+      rgba(231, 200, 116, 0.20) 0%,
+      rgba(201, 162, 75, 0.08) 30%,
+      transparent 68%);
+
+  filter: blur(12px);
+  animation: magicPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.wraith-intro::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(231, 200, 116, 0.18);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 40px rgba(201, 162, 75, 0.15),
+    inset 0 0 40px rgba(201, 162, 75, 0.08);
+
+  animation: magicRing 12s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes magicPulse {
+
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 0.85;
+  }
+}
+
+@keyframes magicRing {
+  from {
+    transform: rotate(0deg) scale(0.95);
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.65;
+  }
+
+  to {
+    transform: rotate(360deg) scale(1.05);
+    opacity: 0.35;
+  }
+}
+
+.wraith-intro-text {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  z-index: 2;
+}
+
+
+.wraith-tag {
+  margin-bottom: 25px;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.4em;
+
+  color: #a99d86;
+}
+
+
+.wraith-intro h1 {
+  margin: 0;
+
+  font-size: clamp(5rem, 14vw, 12rem);
+
+  line-height: 0.8;
+
+  letter-spacing: 0.15em;
+
+  color: #e7c874;
+
+  text-shadow:
+    0 0 20px rgba(201, 162, 75, 0.5),
+    0 0 70px rgba(201, 162, 75, 0.2);
+}
+
+
+.wraith-intro p {
+  max-width: 500px;
+
+  margin: 35px 0 0;
+
+  font-size: 1.1rem;
+
+  line-height: 1.7;
+
+  color: #c9bfac;
+}
+
+
+.wraith-scroll {
+  margin-top: 70px;
+
+  font-size: 0.6rem;
+
+  letter-spacing: 0.3em;
+
+  color: #a99d86;
+
+  animation: wraithScroll 2s infinite ease-in-out;
+}
+
+
+@keyframes wraithScroll {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(7px);
+  }
+
+}
+
+
+/* =========================================
+   SECTION TITLES
+========================================= */
+
+.wraith-block-title {
+  position: absolute;
+
+  top: 80px;
+  left: 9vw;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+
+.wraith-block-title span {
+  font-size: 0.65rem;
+
+  letter-spacing: 0.2em;
+
+  color: rgba(201, 162, 75, 0.5);
+}
+
+
+.wraith-block-title h2 {
+  margin: 0;
+
+  font-size: 0.75rem;
+
+  letter-spacing: 0.35em;
+
+  color: #c9a24b;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.wraith-block {
+  background:
+    radial-gradient(circle at 80% 50%,
+      rgba(201, 162, 75, 0.05),
+      transparent 40%),
+    #090705;
+}
+
+
+.wraith-block-content {
+  max-width: 800px;
+
+  margin-left: 10%;
+}
+
+
+.wraith-big-text {
+  margin: 0 0 40px;
+
+  max-width: 700px;
+
+  font-size: clamp(2.2rem, 5vw, 5rem);
+
+  line-height: 1.05;
+
+  color: #e7c874;
+
+  letter-spacing: 0.03em;
+}
+
+
+.wraith-block-content p:not(.wraith-big-text) {
+  max-width: 650px;
+
+  margin-bottom: 25px;
+
+  font-size: 1rem;
+
+  line-height: 1.9;
+
+  color: #b9ae99;
+}
+
+
+/* =========================================
+   POWERS
+========================================= */
+
+.wraith-powers {
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(201, 162, 75, 0.08),
+      transparent 50%),
+    #090705;
+}
+
+
+.power-list {
+  width: min(900px, 100%);
+
+  margin-left: 10%;
+}
+
+
+.power-item {
+  display: flex;
+
+  gap: 30px;
+
+  padding: 30px 0;
+
+  border-bottom: 1px solid rgba(201, 162, 75, 0.15);
+}
+
+
+.power-item>span {
+  color: #e7c874;
+
+  font-size: 1.3rem;
+}
+
+
+.power-item h3 {
+  margin: 0 0 10px;
+
+  font-size: 1rem;
+
+  letter-spacing: 0.2em;
+
+  color: #e7c874;
+}
+
+
+.power-item p {
+  margin: 0;
+
+  color: #a99d86;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   MISSION
+========================================= */
+
+.wraith-mission {
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(circle at center,
+      rgba(201, 162, 75, 0.13),
+      transparent 50%),
+    #090705;
+}
+
+
+.mission-content {
+  max-width: 900px;
+}
+
+
+.mission-main {
+  margin: 0;
+
+  font-size: clamp(3rem, 7vw, 7rem);
+
+  line-height: 0.95;
+
+  letter-spacing: 0.08em;
+
+  color: #e7c874;
+
+  text-shadow:
+    0 0 30px rgba(201, 162, 75, 0.25);
+}
+
+
+.mission-content p:not(.mission-main) {
+  max-width: 550px;
+
+  margin: 35px auto 0;
+
+  color: #a99d86;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   PERSONALITY
+========================================= */
+
+.wraith-personality {
+  background:
+    linear-gradient(120deg,
+      rgba(201, 162, 75, 0.04),
+      transparent 50%),
+    #090705;
+}
+
+
+.personality-content {
+  width: min(900px, 100%);
+
+  margin-left: 10%;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 14px;
+}
+
+
+.personality-word {
+  padding: 16px 22px;
+
+  border: 1px solid rgba(201, 162, 75, 0.25);
+
+  color: #e7c874;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.22em;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+
+.personality-word:hover {
+  transform: translateY(-5px);
+
+  background: rgba(201, 162, 75, 0.07);
+}
+
+
+.personality-quote {
+  position: absolute;
+
+  right: 9vw;
+  bottom: 100px;
+
+  max-width: 300px;
+
+  color: #a99d86;
+
+  font-size: 0.9rem;
+
+  line-height: 1.7;
+
+  font-style: italic;
+}
+
+
+/* =========================================
+   PURPOSE
+========================================= */
+
+.wraith-purpose {
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(circle at center,
+      rgba(201, 162, 75, 0.15),
+      transparent 50%),
+    #090705;
+}
+
+
+.purpose-content {
+  max-width: 800px;
+}
+
+
+.purpose-main {
+  margin: 0;
+
+  font-size: clamp(4rem, 9vw, 9rem);
+
+  line-height: 0.9;
+
+  letter-spacing: 0.12em;
+
+  color: #e7c874;
+
+  text-shadow:
+    0 0 35px rgba(201, 162, 75, 0.35);
+}
+
+
+.purpose-content p:not(.purpose-main) {
+  max-width: 550px;
+
+  margin: 35px auto 0;
+
+  color: #a99d86;
+
+  line-height: 1.8;
+}
+
+
+.profile-chat-button {
+  margin-top: 45px;
+
+  padding: 16px 30px;
+
+  border: 1px solid #c9a24b;
+
+  background: transparent;
+
+  color: #e7c874;
+
+  font-family: inherit;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.25em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.profile-chat-button:hover {
+  background: #c9a24b;
+
+  color: #090705;
+
+  box-shadow:
+    0 0 30px rgba(201, 162, 75, 0.35);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  #wraith-world>.wraith-intro,
+    #wraith-world>.wraith-origin,
+    #wraith-world>.wraith-powers,
+    #wraith-world>.wraith-mission,
+    #wraith-world>.wraith-personality,
+    #wraith-world>.wraith-purpose {
+      padding: 90px 25px;
+    }
+
+
+  .wraith-intro h1 {
+    font-size: 4.5rem;
+  }
+
+
+  .wraith-block-title {
+    top: 45px;
+    left: 25px;
+  }
+
+
+  .wraith-block-content,
+  .power-list,
+  .personality-content {
+    margin-left: 0;
+  }
+
+
+  .wraith-big-text {
+    font-size: 2.3rem;
+  }
+
+
+  .mission-main {
+    font-size: 3rem;
+  }
+
+
+  .personality-quote {
+    position: static;
+
+    margin-top: 40px;
+  }
+
+
+  .purpose-main {
+    font-size: 4rem;
+  }
+
+}
+/* =========================================
+   HOLOGRAM CHAT - RESPONSIVE SIZE
+========================================= */
+
+.chat-dialog {
+  width: 100%;
+  height: 100%;
+  padding: 5vh 5vw;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.hologram {
+  width: min(850px, 90vw);
+  height: min(720px, 82vh);
+
+  max-width: 850px;
+  max-height: 720px;
+
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+
+  position: relative;
+}
+
+
+/* MESSAGE AREA */
+
+.messages {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+}
+
+
+/* INPUT AREA */
+
+.chat-input {
+  width: 100%;
+
+  display: flex;
+
+  flex-shrink: 0;
+
+  box-sizing: border-box;
+}
+
+
+.chat-input input {
+  flex: 1;
+
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   SMALL SCREENS
+========================================= */
+
+@media (max-width: 700px) {
+
+  .chat-dialog {
+    padding: 20px;
+  }
+
+  .hologram {
+    width: 94vw;
+    height: 78vh;
+  }
+
+  .messages {
+    padding: 20px;
+  }
+
+}
+/* =========================================
+   HOLOGRAM PHONE PROJECTOR
+========================================= */
+
+.hologram {
+  position: relative;
+}
+
+
+/* Keep the actual chat above the projector */
+
+.chat-shell {
+  position: relative;
+  z-index: 5;
+}
+
+
+/* Phone sits underneath the hologram */
+
+.holo-phone {
+  position: absolute;
+
+  left: 50%;
+  bottom: -75px;
+
+  transform: translateX(-50%);
+
+  width: 150px;
+  height: 280px;
+
+  z-index: 1;
+}
+
+
+/* Projected light comes FROM the phone */
+
+.holo-beam {
+  position: absolute;
+
+  left: 50%;
+  bottom: 100px;
+
+  transform: translateX(-50%);
+
+  width: 850px;
+  height: 600px;
+
+  z-index: 2;
+  pointer-events: none;
+
+  opacity: 0.28;
+
+  background:
+    radial-gradient(ellipse 60% 75% at 50% 100%,
+      rgba(231, 200, 116, 0.08) 0%,
+      rgba(231, 200, 116, 0.035) 30%,
+      rgba(201, 162, 75, 0.012) 55%,
+      transparent 78%);
+
+  filter: blur(20px);
+}
+
+/* Keep chat content in front of the beam */
+
+.chat-shell,
+.chat-header,
+.messages,
+.chat-input {
+  position: relative;
+  z-index: 5;
+}
+
+
+/* Prevent the phone from pushing the chat layout */
+
+.hologram {
+  overflow: visible;
+}
+/* =========================================
+   ORIGIN STORY
+========================================= */
+
+in {
+  height: 100vh;
+  height: 100svh;
+
+  min-height: 0 !important;
+
+  box-sizing: border-box;
+
+  overflow: hidden !important;
+
+  align-items: flex-start !important;
+}
+
+
+/* Main origin story area */
+
+.origin-content {
+  width: min(1100px, 100%);
+
+  height: calc(100vh - 180px);
+  height: calc(100svh - 180px);
+
+  margin: 80px auto 0;
+
+  display: grid;
+
+  grid-template-columns: 0.8fr 1.2fr;
+
+  gap: 80px;
+
+  overflow: hidden;
+}
+
+
+/* Left heading */
+
+.origin-heading {
+  position: sticky;
+
+  top: 0;
+
+  align-self: start;
+}
+
+
+.origin-heading span {
+  display: block;
+
+  margin-bottom: 20px;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.3em;
+
+  color: #a99d86;
+}
+
+
+.origin-heading h2 {
+  margin: 0;
+
+  font-size: clamp(2.2rem, 4vw, 4.5rem);
+.wraith-orig
+  line-height: 1;
+
+  letter-spacing: 0.04em;
+
+  color: #e7c874;
+
+  text-shadow:
+    0 0 25px rgba(201, 162, 75, 0.2);
+}
+
+
+/* Scrollable story */
+
+.origin-text {
+  height: 100%;
+
+  overflow-y: auto;
+
+  padding-right: 35px;
+
+  box-sizing: border-box;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(201, 162, 75, 0.4) transparent;
+}
+
+
+.origin-text p {
+  max-width: 650px;
+
+  margin: 0 0 35px;
+
+  color: #b9ae9b;
+
+  font-size: 1rem;
+
+  line-height: 1.9;
+}
+
+
+.origin-text strong {
+  color: #e7c874;
+}
+
+
+/* Entity reveal */
+
+.origin-reveal {
+  padding: 30px 0;
+
+  border-top: 1px solid rgba(201, 162, 75, 0.2);
+
+  border-bottom: 1px solid rgba(201, 162, 75, 0.2);
+
+  font-size: 1.4rem !important;
+
+  line-height: 1.5 !important;
+
+  color: #eee5d2 !important;
+}
+
+
+.origin-final {
+  padding-bottom: 80px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .wraith-origin {
+    height: 100svh;
+
+    padding: 80px 25px 30px !important;
+  }
+
+
+  .origin-content {
+    height: calc(100svh - 140px);
+
+    margin-top: 40px;
+
+    display: block;
+
+    overflow: hidden;
+  }
+
+
+  .origin-heading {
+    position: static;
+
+    margin-bottom: 35px;
+  }
+
+
+  .origin-heading h2 {
+    font-size: 2.4rem;
+  }
+
+
+  .origin-text {
+    height: calc(100% - 150px);
+
+    padding-right: 15px;
+  }
+
+}
+/* =================================
+   ORIGIN STORY
+   ================================= */
+
+.wraith-origin {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+
+  box-sizing: border-box;
+
+  padding: 100px 9vw;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 75% 45%,
+      rgba(201, 162, 75, 0.10),
+      transparent 35%),
+    #090705;
+
+  color: #eee5d2;
+}
+
+
+/* small section number */
+
+.origin-label {
+  position: absolute;
+
+  top: 45px;
+  left: 9vw;
+
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+
+  color: rgba(201, 162, 75, 0.55);
+}
+
+
+/* main two-column layout */
+
+.origin-layout {
+  width: min(1150px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 100px;
+
+  align-items: center;
+}
+
+
+/* LEFT SIDE */
+
+.origin-title span {
+  display: block;
+
+  margin-bottom: 20px;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.35em;
+
+  color: #a99d86;
+}
+
+
+.origin-title h2 {
+  margin: 0;
+
+  font-size: clamp(3rem, 5vw, 5.5rem);
+
+  line-height: 0.95;
+
+  letter-spacing: 0.02em;
+
+  color: #e7c874;
+
+  text-shadow:
+    0 0 25px rgba(201, 162, 75, 0.25);
+}
+
+
+.origin-line {
+  width: 70px;
+
+  height: 1px;
+
+  margin: 35px 0;
+
+  background: #c9a24b;
+}
+
+
+.origin-title p {
+  max-width: 300px;
+
+  margin: 0;
+
+  font-size: 0.9rem;
+
+  line-height: 1.7;
+
+  color: #a99d86;
+}
+
+
+/* RIGHT SIDE */
+
+.origin-story {
+  max-width: 650px;
+
+  max-height: 70vh;
+
+  overflow-y: auto;
+
+  padding-right: 35px;
+
+  box-sizing: border-box;
+}
+
+
+/* scrollbar */
+
+.origin-story::-webkit-scrollbar {
+  width: 3px;
+}
+
+.origin-story::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.origin-story::-webkit-scrollbar-thumb {
+  background: rgba(201, 162, 75, 0.35);
+}
+
+
+/* paragraphs */
+
+.origin-story>p {
+  margin: 0 0 25px;
+
+  font-size: 0.95rem;
+
+  line-height: 1.8;
+
+  color: #b9ae99;
+}
+
+
+.origin-story strong {
+  color: #e7c874;
+}
+
+
+/* dramatic discovery */
+
+.origin-reveal {
+  margin: 35px 0;
+
+  padding: 25px 0;
+
+  border-top: 1px solid rgba(201, 162, 75, 0.25);
+
+  border-bottom: 1px solid rgba(201, 162, 75, 0.25);
+}
+
+
+.origin-reveal span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-size: 0.6rem;
+
+  letter-spacing: 0.3em;
+
+  color: #a99d86;
+}
+
+
+.origin-reveal strong {
+  display: block;
+
+  font-size: 1.5rem;
+
+  color: #eee5d2;
+}
+
+
+.origin-reveal em {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 1.2rem;
+
+  font-style: normal;
+
+  color: #e7c874;
+}
+
+
+/* ending */
+
+.origin-ending {
+  margin-top: 40px;
+
+  padding-top: 30px;
+
+  border-top: 1px solid rgba(201, 162, 75, 0.2);
+}
+
+
+.origin-ending>span {
+  font-size: 0.6rem;
+
+  letter-spacing: 0.3em;
+
+  color: #a99d86;
+}
+
+
+.origin-ending p {
+  margin: 15px 0;
+
+  font-size: 1.4rem;
+
+  line-height: 1.4;
+
+  color: #e7c874;
+}
+
+
+.origin-ending small {
+  display: block;
+
+  max-width: 550px;
+
+  font-size: 0.85rem;
+
+  line-height: 1.7;
+
+  color: #a99d86;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .wraith-origin {
+    height: 100svh;
+    min-height: 100svh;
+
+    padding: 90px 25px 40px;
+
+    align-items: flex-start;
+  }
+
+  .origin-label {
+    top: 35px;
+    left: 25px;
+  }
+
+  .origin-layout {
+    display: block;
+
+    width: 100%;
+  }
+
+  .origin-title {
+    margin-bottom: 35px;
+  }
+
+  .origin-title h2 {
+    font-size: 2.8rem;
+  }
+
+  .origin-title p {
+    display: none;
+  }
+
+  .origin-story {
+    max-height: calc(100svh - 260px);
+
+    padding-right: 15px;
+  }
+
+  .origin-story>p {
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+  }
+
+  .origin-reveal strong {
+    font-size: 1.25rem;
+  }
+
+  .origin-ending p {
+    font-size: 1.15rem;
+  }
+}
+/* =========================
+   ME SECTION
+   ========================= */
+
+.me-section {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  padding: 100px 9vw;
+
+  background:
+    radial-gradient(circle at 75% 50%,
+      rgba(201, 162, 75, 0.10),
+      transparent 35%),
+    #090705;
+
+  color: #eee5d2;
+}
+
+.me-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 80px;
+}
+
+
+/* LEFT SIDE */
+
+.me-text {
+  flex: 1;
+  max-width: 550px;
+}
+
+.me-label {
+  display: block;
+
+  margin-bottom: 25px;
+
+  color: rgba(201, 162, 75, 0.65);
+
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+}
+
+.me-text h2 {
+  margin: 0;
+
+  font-size: clamp(4rem, 7vw, 7rem);
+  line-height: 0.85;
+  letter-spacing: 0.03em;
+
+  color: #eee5d2;
+}
+
+.me-text h2 span {
+  color: #e7c874;
+
+  text-shadow:
+    0 0 20px rgba(201, 162, 75, 0.3);
+}
+
+.me-intro {
+  max-width: 450px;
+
+  margin: 35px 0 45px;
+
+  color: #b9ae99;
+
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+
+/* I LIKE */
+
+.me-likes {
+  border-left: 1px solid rgba(201, 162, 75, 0.35);
+
+  padding-left: 25px;
+}
+
+.likes-label {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: #e7c874;
+
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+}
+
+.me-likes p {
+  margin: 8px 0;
+
+  color: #a99d86;
+
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+
+/* RIGHT SIDE IMAGE */
+
+.me-image {
+  position: relative;
+
+  width: min(400px, 35vw);
+
+  flex-shrink: 0;
+}
+
+.me-image img {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 550px;
+
+  object-fit: cover;
+
+  border: 1px solid rgba(231, 200, 116, 0.5);
+
+  filter:
+    contrast(1.05) brightness(0.9);
+
+  z-index: 2;
+}
+
+
+/* GOLDEN MAGIC BEHIND IMAGE */
+
+.me-image-glow {
+  position: absolute;
+
+  width: 80%;
+  height: 80%;
+
+  left: 10%;
+  top: 10%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle,
+      rgba(231, 200, 116, 0.20),
+      rgba(201, 162, 75, 0.08) 40%,
+      transparent 70%);
+
+  filter: blur(30px);
+
+  z-index: 1;
+
+  animation: meGlow 4s ease-in-out infinite;
+}
+
+@keyframes meGlow {
+
+  0%,
+  100% {
+    transform: scale(0.95);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+  .me-section {
+    padding: 90px 25px;
+  }
+
+  .me-content {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 50px;
+  }
+
+  .me-text {
+    max-width: 100%;
+  }
+
+  .me-text h2 {
+    font-size: 4rem;
+  }
+
+  .me-image {
+    width: 100%;
+    max-width: 350px;
+
+    align-self: center;
+  }
+
+  .me-image img {
+    height: 450px;
+  }
+}
