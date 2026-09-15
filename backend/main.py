@@ -15,9 +15,6 @@ load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 app = FastAPI()
 
 
-# -----------------------------
-# CORS
-# -----------------------------
 
 app.add_middleware(
     CORSMiddleware,
@@ -28,17 +25,12 @@ app.add_middleware(
 )
 
 
-# -----------------------------
-# EMAIL SETTINGS
-# -----------------------------
 
 YOUR_EMAIL = os.getenv("YOUR_EMAIL")
 APP_PASSWORD = os.getenv("APP_PASSWORD")
 
 
-# -----------------------------
-# DATA MODEL
-# -----------------------------
+
 
 class Grievance(BaseModel):
     name: str
@@ -48,9 +40,7 @@ class Grievance(BaseModel):
     grievance: str
 
 
-# -----------------------------
-# SUBMIT GRIEVANCE
-# -----------------------------
+
 
 @app.post("/submit-grievance")
 async def submit_grievance(data: Grievance):
@@ -60,14 +50,12 @@ async def submit_grievance(data: Grievance):
         "%d %B %Y · %I:%M %p"
     )
 
-    # Escape user input before putting it into HTML
     name = html.escape(data.name)
     age = html.escape(data.age)
     location = html.escape(data.location)
     email = html.escape(str(data.email))
     grievance = html.escape(data.grievance)
 
-    # Create email
     message = EmailMessage()
 
     message["Subject"] = f"✦ NEW CASE FILE · {data.name}"
@@ -75,9 +63,6 @@ async def submit_grievance(data: Grievance):
     message["To"] = YOUR_EMAIL
     message["Reply-To"] = str(data.email)
 
-    # -----------------------------
-    # HTML EMAIL
-    # -----------------------------
 
     html_content = f"""
     <!DOCTYPE html>
@@ -332,17 +317,14 @@ async def submit_grievance(data: Grievance):
     </html>
     """
 
-    # Add HTML version of email
+    
     message.add_alternative(
         html_content,
         subtype="html"
     )
 
 
-    # -----------------------------
-    # SEND EMAIL THROUGH GMAIL
-    # -----------------------------
-
+    
     with smtplib.SMTP_SSL(
         "smtp.gmail.com",
         465
@@ -356,9 +338,6 @@ async def submit_grievance(data: Grievance):
         smtp.send_message(message)
 
 
-    # -----------------------------
-    # RESPONSE TO WEBSITE
-    # -----------------------------
 
     return {
         "success": True,
