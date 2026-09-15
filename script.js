@@ -329,43 +329,72 @@ async function handleSend(event) {
     // Clear input
     input.value = "";
 
-// Validate age
-if (currentStep === 1) {
-    const age = Number(text);
 
-    if (!Number.isInteger(age) || age < 1 ) {
-        addMessage(
-            "Please enter age in numbers",
-            "bot"
-        );
-        return;
+    // =========================================
+    // VALIDATE AGE
+    // =========================================
+
+    if (currentStep === 1) {
+
+        const age = Number(text);
+
+        if (
+            !Number.isInteger(age) ||
+            age < 1
+        ) {
+
+            addMessage(
+                "Please enter age in numbers.",
+                "bot"
+            );
+
+            return;
+        }
     }
-}
- // Validate email before saving it
 
-if (currentStep === 3) {
-    const emailPattern = /^[^\s@]+@gmail\.com$/i;
 
-    if (!emailPattern.test(text)) {
-        addMessage(
-            "That doesn't look like a valid Gmail address. Try again.",
-            "bot"
-        );
-        return;
+    // =========================================
+    // VALIDATE EMAIL
+    // =========================================
+
+    if (currentStep === 3) {
+
+        const emailPattern =
+            /^[^\s@]+@gmail\.com$/i;
+
+        if (!emailPattern.test(text)) {
+
+            addMessage(
+                "That doesn't look like a valid Gmail address. Try again.",
+                "bot"
+            );
+
+            return;
+        }
     }
-}
 
-// Save answer
-if (currentStep < fields.length) {
-    visitorData[
-        fields[currentStep]
-    ] = text;
-}
 
-// Move to next question
-currentStep++;
+    // =========================================
+    // SAVE ANSWER
+    // =========================================
 
-    // Typing animation
+    if (currentStep < fields.length) {
+
+        visitorData[
+            fields[currentStep]
+        ] = text;
+
+    }
+
+
+    // Move to next question
+    currentStep++;
+
+
+    // =========================================
+    // TYPING ANIMATION
+    // =========================================
+
     showTyping();
 
 
@@ -408,40 +437,75 @@ currentStep++;
     );
 
 
+    // =========================================
+    // SEND TO PYTHONANYWHERE
+    // =========================================
+
     try {
 
         const response = await fetch(
-    "https://ashwinams.pythonanywhere.com/submit-grievance",
-    {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(visitorData)
+            "https://ashwinams.pythonanywhere.com/submit-grievance",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(visitorData)
+            }
+        );
+
+
+        const result =
+            await response.json();
+
+
+        // =========================================
+        // SUCCESS
+        // =========================================
+
+        if (response.ok) {
+
+            addMessage(
+                "It's been submitted. I've got it from here.",
+                "bot"
+            );
+
+        }
+
+
+        // =========================================
+        // SERVER ERROR
+        // =========================================
+
+        else {
+
+            console.error(
+                "Server response:",
+                result
+            );
+
+            addMessage(
+                "I couldn't submit this right now. The case system seems to be offline.",
+                "bot"
+            );
+
+        }
+
     }
-);
 
-const result = await response.json();
 
-if (response.ok) {
+    // =========================================
+    // CONNECTION ERROR
+    // =========================================
 
-    addMessage(
-        "It's been submitted. I've got it from here.",
-        "bot"
-    );
+    catch (error) {
 
-} else {
-
-    console.error(result);
-
-    addMessage(
-        "I couldn't submit this right now. The case system seems to be offline.",
-        "bot"
-    );
-}
-    } catch (error) {
-
-        console.error(error);
+        console.error(
+            "Submission error:",
+            error
+        );
 
         addMessage(
             "I couldn't reach the submission system. The server might be offline.",
@@ -469,7 +533,9 @@ function updatePlaceholder() {
         input.placeholder =
             questions[currentStep];
 
-    } else {
+    }
+
+    else {
 
         input.placeholder =
             "Message Wraith...";
@@ -556,7 +622,25 @@ if (profileChatButton) {
 // =========================================
 
 startChat();
-document.addEventListener("mousemove", (e) => {
-  document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
-  document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
-});
+
+
+// =========================================
+// CURSOR MAGIC
+// =========================================
+
+document.addEventListener(
+    "mousemove",
+    (e) => {
+
+        document.documentElement.style.setProperty(
+            "--mouse-x",
+            `${e.clientX}px`
+        );
+
+        document.documentElement.style.setProperty(
+            "--mouse-y",
+            `${e.clientY}px`
+        );
+
+    }
+);
