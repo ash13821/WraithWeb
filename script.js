@@ -11,9 +11,7 @@ const input = document.getElementById("userInput");
 const chatForm = document.getElementById("chatForm");
 
 
-// =========================================
-// CHAT OPEN / CLOSE
-// =========================================
+
 
 function openChatBox() {
 
@@ -45,7 +43,7 @@ function closeChatBox() {
 }
 
 
-// Close button
+
 if (closeChat) {
 
     closeChat.addEventListener(
@@ -56,7 +54,6 @@ if (closeChat) {
 }
 
 
-// Click outside hologram
 if (chatOverlay) {
 
     chatOverlay.addEventListener(
@@ -67,7 +64,6 @@ if (chatOverlay) {
 }
 
 
-// ESC key
 document.addEventListener("keydown", (event) => {
 
     if (event.key === "Escape") {
@@ -77,7 +73,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 
-// Open chat button
+
 if (openChatButton) {
 
     openChatButton.addEventListener(
@@ -87,10 +83,6 @@ if (openChatButton) {
 
 }
 
-
-// =========================================
-// INTRO
-// =========================================
 
 let siteRevealed = false;
 
@@ -118,7 +110,6 @@ function revealSite() {
                 );
             }
 
-            // Automatically open holographic chatbot
             openChatBox();
 
         }, 1200);
@@ -139,7 +130,7 @@ function revealSite() {
 }
 
 
-// Video finishes
+
 if (introVideo) {
 
     introVideo.addEventListener(
@@ -167,7 +158,7 @@ if (introVideo) {
     );
 
 
-    // Safety net
+ 
     setTimeout(() => {
 
         if (
@@ -184,7 +175,6 @@ if (introVideo) {
 }
 
 
-// Clicking intro
 if (intro) {
 
     intro.addEventListener(
@@ -195,9 +185,7 @@ if (intro) {
 }
 
 
-// =========================================
-// CHAT INFORMATION COLLECTION
-// =========================================
+
 
 let currentStep = 0;
 
@@ -239,9 +227,7 @@ const fields = [
 ];
 
 
-// =========================================
-// ADD MESSAGE
-// =========================================
+
 
 function addMessage(text, who = "bot") {
 
@@ -261,9 +247,7 @@ function addMessage(text, who = "bot") {
 }
 
 
-// =========================================
-// TYPING INDICATOR
-// =========================================
+
 
 function showTyping() {
 
@@ -301,9 +285,7 @@ function removeTyping() {
 }
 
 
-// =========================================
-// SEND MESSAGE
-// =========================================
+
 
 async function handleSend(event) {
 
@@ -319,20 +301,17 @@ async function handleSend(event) {
     if (!text) return;
 
 
-    // Show user's message
     addMessage(
         text,
         "user"
     );
 
 
-    // Clear input
+   
     input.value = "";
 
 
-    // =========================================
-    // VALIDATE AGE
-    // =========================================
+    
 
     if (currentStep === 1) {
 
@@ -353,9 +332,7 @@ async function handleSend(event) {
     }
 
 
-    // =========================================
-    // VALIDATE EMAIL
-    // =========================================
+  
 
     if (currentStep === 3) {
 
@@ -374,9 +351,7 @@ async function handleSend(event) {
     }
 
 
-    // =========================================
-    // SAVE ANSWER
-    // =========================================
+  
 
     if (currentStep < fields.length) {
 
@@ -387,13 +362,10 @@ async function handleSend(event) {
     }
 
 
-    // Move to next question
     currentStep++;
 
 
-    // =========================================
-    // TYPING ANIMATION
-    // =========================================
+   
 
     showTyping();
 
@@ -407,9 +379,7 @@ async function handleSend(event) {
     removeTyping();
 
 
-    // =========================================
-    // ASK NEXT QUESTION
-    // =========================================
+    
 
     if (
         currentStep <
@@ -427,9 +397,7 @@ async function handleSend(event) {
     }
 
 
-    // =========================================
-    // EVERYTHING COLLECTED
-    // =========================================
+  
 
     addMessage(
         "Got it. Give me a moment while I send this through.",
@@ -437,9 +405,7 @@ async function handleSend(event) {
     );
 
 
-    // =========================================
-    // SEND TO PYTHONANYWHERE
-    // =========================================
+    
 
     try {
 
@@ -461,10 +427,7 @@ async function handleSend(event) {
             await response.json();
 
 
-        // =========================================
-        // SUCCESS
-        // =========================================
-
+      
         if (response.ok) {
 
             addMessage(
@@ -475,9 +438,7 @@ async function handleSend(event) {
         }
 
 
-        // =========================================
-        // SERVER ERROR
-        // =========================================
+    
 
         else {
 
@@ -496,9 +457,6 @@ async function handleSend(event) {
     }
 
 
-    // =========================================
-    // CONNECTION ERROR
-    // =========================================
 
     catch (error) {
 
@@ -517,9 +475,6 @@ async function handleSend(event) {
 }
 
 
-// =========================================
-// INPUT PLACEHOLDER
-// =========================================
 
 function updatePlaceholder() {
 
@@ -545,9 +500,7 @@ function updatePlaceholder() {
 }
 
 
-// =========================================
-// FORM SUBMIT
-// =========================================
+
 
 if (chatForm) {
 
@@ -559,20 +512,18 @@ if (chatForm) {
 }
 
 
-// =========================================
-// START CHAT
-// =========================================
+
 
 function startChat() {
 
     if (!messages) return;
 
 
-    // Clear whatever was originally inside
+   
     messages.innerHTML = "";
 
 
-    // First greeting
+    
     addMessage(
         "Hey. I'm Wraith.",
         "bot"
@@ -593,9 +544,7 @@ function startChat() {
 }
 
 
-// =========================================
-// PROFILE CHAT BUTTON
-// =========================================
+
 
 const profileChatButton =
     document.getElementById(
@@ -617,16 +566,12 @@ if (profileChatButton) {
 }
 
 
-// =========================================
-// INITIALISE
-// =========================================
+
 
 startChat();
 
 
-// =========================================
-// CURSOR MAGIC
-// =========================================
+
 
 document.addEventListener(
     "mousemove",
