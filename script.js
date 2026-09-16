@@ -381,8 +381,8 @@ currentStep++;
 
     try {
 
-        const response = await fetch(
-    "http://127.0.0.1:8000/submit-grievance",
+       const response = await fetch(
+    "https://ashwinams.pythonanywhere.com/submit-grievance",
     {
         method: "POST",
         headers: {
