@@ -11,8 +11,6 @@ const input = document.getElementById("userInput");
 const chatForm = document.getElementById("chatForm");
 
 
-
-
 function openChatBox() {
 
     if (!chatDialog) return;
@@ -43,7 +41,6 @@ function closeChatBox() {
 }
 
 
-
 if (closeChat) {
 
     closeChat.addEventListener(
@@ -54,6 +51,7 @@ if (closeChat) {
 }
 
 
+
 if (chatOverlay) {
 
     chatOverlay.addEventListener(
@@ -62,6 +60,7 @@ if (chatOverlay) {
     );
 
 }
+
 
 
 document.addEventListener("keydown", (event) => {
@@ -110,6 +109,7 @@ function revealSite() {
                 );
             }
 
+        
             openChatBox();
 
         }, 1200);
@@ -158,7 +158,7 @@ if (introVideo) {
     );
 
 
- 
+  
     setTimeout(() => {
 
         if (
@@ -173,6 +173,7 @@ if (introVideo) {
     }, 4500);
 
 }
+
 
 
 if (intro) {
@@ -206,7 +207,7 @@ const questions = [
 
   "How old are you? Just the number. I promise I won't judge.",
 
-  "Where are you located? The general area will do.",
+  "Where are you based?",
 
   "What's your Gmail? Yes, Gmail specifically.",
 
@@ -222,7 +223,6 @@ const fields = [
     "grievance"
 
 ];
-
 
 
 
@@ -242,7 +242,6 @@ function addMessage(text, who = "bot") {
         messages.scrollHeight;
 
 }
-
 
 
 
@@ -282,8 +281,6 @@ function removeTyping() {
 }
 
 
-
-
 async function handleSend(event) {
 
     if (event) {
@@ -298,72 +295,53 @@ async function handleSend(event) {
     if (!text) return;
 
 
+    
     addMessage(
         text,
         "user"
     );
 
 
-   
+    
     input.value = "";
 
 
+if (currentStep === 1) {
+    const age = Number(text);
+
+    if (!Number.isInteger(age) || age < 1 ) {
+        addMessage(
+            "Please enter age in numbers",
+            "bot"
+        );
+        return;
+    }
+}
+ 
+
+if (currentStep === 3) {
+    const emailPattern = /^[^\s@]+@gmail\.com$/i;
+
+    if (!emailPattern.test(text)) {
+        addMessage(
+            "That doesn't look like a valid Gmail address. Try again.",
+            "bot"
+        );
+        return;
+    }
+}
+
+
+if (currentStep < fields.length) {
+    visitorData[
+        fields[currentStep]
+    ] = text;
+}
+
+
+currentStep++;
+
     
-
-    if (currentStep === 1) {
-
-        const age = Number(text);
-
-        if (
-            !Number.isInteger(age) ||
-            age < 1
-        ) {
-
-            addMessage(
-                "Please enter age in numbers.",
-                "bot"
-            );
-
-            return;
-        }
-    }
-
-
-  
-
-    if (currentStep === 3) {
-
-        const emailPattern =
-            /^[^\s@]+@gmail\.com$/i;
-
-        if (!emailPattern.test(text)) {
-
-            addMessage(
-                "That doesn't look like a valid Gmail address. Try again.",
-                "bot"
-            );
-
-            return;
-        }
-    }
-
-
-  
-
-    if (currentStep < fields.length) {
-
-        visitorData[
-            fields[currentStep]
-        ] = text;
-
-    }
-
-
-    currentStep++;
-
-
-   
-
     showTyping();
 
 
@@ -376,7 +354,6 @@ async function handleSend(event) {
     removeTyping();
 
 
-    
 
     if (
         currentStep <
@@ -394,7 +371,7 @@ async function handleSend(event) {
     }
 
 
-  
+   
 
     addMessage(
         "Got it. Give me a moment while I send this through.",
@@ -402,65 +379,40 @@ async function handleSend(event) {
     );
 
 
-    
-
     try {
 
         const response = await fetch(
-            "https://ashwinams.pythonanywhere.com/submit-grievance",
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify(visitorData)
-            }
-        );
-
-
-        const result =
-            await response.json();
-
-
-      
-        if (response.ok) {
-
-            addMessage(
-                "It's been submitted. I've got it from here.",
-                "bot"
-            );
-
-        }
-
-
-    
-
-        else {
-
-            console.error(
-                "Server response:",
-                result
-            );
-
-            addMessage(
-                "I couldn't submit this right now. The case system seems to be offline.",
-                "bot"
-            );
-
-        }
-
+    "http://127.0.0.1:8000/submit-grievance",
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(visitorData)
     }
+);
 
+const result = await response.json();
 
+if (response.ok) {
 
-    catch (error) {
+    addMessage(
+        "It's been submitted. I've got it from here.",
+        "bot"
+    );
 
-        console.error(
-            "Submission error:",
-            error
-        );
+} else {
+
+    console.error(result);
+
+    addMessage(
+        "I couldn't submit this right now. The case system seems to be offline.",
+        "bot"
+    );
+}
+    } catch (error) {
+
+        console.error(error);
 
         addMessage(
             "I couldn't reach the submission system. The server might be offline.",
@@ -470,6 +422,7 @@ async function handleSend(event) {
     }
 
 }
+
 
 
 
@@ -485,9 +438,7 @@ function updatePlaceholder() {
         input.placeholder =
             questions[currentStep];
 
-    }
-
-    else {
+    } else {
 
         input.placeholder =
             "Message Wraith...";
@@ -507,16 +458,10 @@ if (chatForm) {
     );
 
 }
-
-
-
-
 function startChat() {
 
     if (!messages) return;
 
-
-   
     messages.innerHTML = "";
 
 
@@ -562,27 +507,8 @@ if (profileChatButton) {
 
 }
 
-
-
-
 startChat();
-
-
-
-
-document.addEventListener(
-    "mousemove",
-    (e) => {
-
-        document.documentElement.style.setProperty(
-            "--mouse-x",
-            `${e.clientX}px`
-        );
-
-        document.documentElement.style.setProperty(
-            "--mouse-y",
-            `${e.clientY}px`
-        );
-
-    }
-);
+document.addEventListener("mousemove", (e) => {
+  document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
+  document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
+});
