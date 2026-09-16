@@ -187,9 +187,8 @@ if (intro) {
 
 
 
-
 let currentStep = 0;
-
+let problemFollowUp = false;
 
 const visitorData = {
 
@@ -211,7 +210,7 @@ const questions = [
 
   "What's your Gmail? Yes, Gmail specifically.",
 
-  "Alright, what kind of mess are we dealing with?",
+  "Alright. What's going on?",
 ];
 
 const fields = [
@@ -279,7 +278,95 @@ function removeTyping() {
     }
 
 }
+function addMessage(text, who = "bot") {
 
+    if (!messages) return;
+
+    const div = document.createElement("div");
+
+    div.className = "msg " + who;
+
+    div.textContent = text;
+
+    messages.appendChild(div);
+
+    messages.scrollTop =
+        messages.scrollHeight;
+
+}
+
+
+function getWraithResponse(text) {
+
+    const message = text.toLowerCase();
+
+    if (
+        message.includes("college") ||
+        message.includes("exam") ||
+        message.includes("assignment") ||
+        message.includes("marks") ||
+        message.includes("study")
+    ) {
+        return "College. Of course. Because apparently life wasn't stressful enough already. What's been bothering you?";
+    }
+
+    if (
+        message.includes("friend") ||
+        message.includes("bestie") ||
+        message.includes("friendship")
+    ) {
+        return "Okay. This sounds personal. What happened?";
+    }
+
+    if (
+        message.includes("family") ||
+        message.includes("parent") ||
+        message.includes("parents") ||
+        message.includes("home")
+    ) {
+        return "Family stuff. Never exactly simple, is it? Tell me what's going on.";
+    }
+
+    if (
+        message.includes("scared") ||
+        message.includes("afraid") ||
+        message.includes("unsafe") ||
+        message.includes("danger") ||
+        message.includes("threat")
+    ) {
+        return "Okay. That's serious. Forget everything else for a second. Are you safe right now?";
+    }
+
+    if (
+        message.includes("sad") ||
+        message.includes("lonely") ||
+        message.includes("alone") ||
+        message.includes("cry")
+    ) {
+        return "Hey. You don't have to pretend you're fine with me. Tell me what's going on.";
+    }
+
+    if (
+        message.includes("angry") ||
+        message.includes("mad") ||
+        message.includes("furious")
+    ) {
+        return "Okay. Someone has clearly managed to annoy you. I need the story.";
+    }
+
+    if (
+        message.includes("stress") ||
+        message.includes("stressed") ||
+        message.includes("overwhelmed")
+    ) {
+        return "Sounds like you've got a lot on your plate. Let's untangle it one thing at a time.";
+    }
+
+    return "Okay. You've got my attention. Tell me a little more.";
+}
+
+
+async function handleSend(event) {
 
 async function handleSend(event) {
 
