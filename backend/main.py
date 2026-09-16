@@ -325,18 +325,141 @@ async def submit_grievance(data: Grievance):
 
 
     
-    with smtplib.SMTP_SSL(
+      with smtplib.SMTP_SSL(
         "smtp.gmail.com",
         465
     ) as smtp:
 
         smtp.login(
             YOUR_EMAIL,
-           APP_PASSWORD
+            APP_PASSWORD
         )
 
         smtp.send_message(message)
 
+
+        confirmation = EmailMessage()
+
+        confirmation["Subject"] = "✦ WRAITHWEB · SIGNAL RECEIVED"
+        confirmation["From"] = YOUR_EMAIL
+        confirmation["To"] = str(data.email)
+
+
+        confirmation_html = f"""
+        <!DOCTYPE html>
+
+        <html>
+
+        <body style="
+            margin:0;
+            padding:40px 20px;
+            background:#090806;
+            font-family:Arial, Helvetica, sans-serif;
+            color:#e9e0cb;
+        ">
+
+            <div style="
+                max-width:600px;
+                margin:auto;
+                background:#120e0a;
+                border:1px solid #3d3321;
+            ">
+
+                <div style="
+                    padding:35px;
+                    border-bottom:1px solid #3d3321;
+                ">
+
+                    <div style="
+                        color:#c9a24b;
+                        font-size:11px;
+                        letter-spacing:4px;
+                        margin-bottom:18px;
+                    ">
+                        WRAITHWEB // SIGNAL RECEIVED
+                    </div>
+
+                    <div style="
+                        font-family:Georgia, serif;
+                        font-size:32px;
+                        color:#e9e0cb;
+                    ">
+                        Hey, {name}.
+                    </div>
+
+                </div>
+
+
+                <div style="
+                    padding:35px;
+                    font-size:15px;
+                    line-height:1.8;
+                    color:#b9ae99;
+                ">
+
+                    <p style="margin-top:0;">
+                        I got your message.
+                    </p>
+
+                    <p>
+                        Whatever brought you here, I'm glad you reached out.
+                        I don't know what kind of trouble you've managed to
+                        find yourself in, but apparently it's my problem now.
+                    </p>
+
+                    <p>
+                        I've got your details, and I'll take a look at what
+                        you sent.
+                    </p>
+
+                    <p>
+                        For now, take a breath. You don't have to figure
+                        everything out on your own.
+                    </p>
+
+                    <p style="
+                        margin-top:30px;
+                        color:#e7c874;
+                        font-family:Georgia, serif;
+                        font-size:22px;
+                        font-style:italic;
+                    ">
+                        I've got you.
+                    </p>
+
+                </div>
+
+
+                <div style="
+                    padding:25px 35px;
+                    border-top:1px solid #3d3321;
+                    color:#8f836b;
+                    font-size:11px;
+                    line-height:1.6;
+                ">
+
+                    — Wraith<br>
+
+                    <span style="color:#c9a24b;">
+                        WraithWeb · Signal received
+                    </span>
+
+                </div>
+
+            </div>
+
+        </body>
+
+        </html>
+        """
+
+
+        confirmation.add_alternative(
+            confirmation_html,
+            subtype="html"
+        )
+
+        smtp.send_message(confirmation)
 
 
     return {
