@@ -51,7 +51,6 @@ if (closeChat) {
 }
 
 
-
 if (chatOverlay) {
 
     chatOverlay.addEventListener(
@@ -62,7 +61,6 @@ if (chatOverlay) {
 }
 
 
-
 document.addEventListener("keydown", (event) => {
 
     if (event.key === "Escape") {
@@ -70,7 +68,6 @@ document.addEventListener("keydown", (event) => {
     }
 
 });
-
 
 
 if (openChatButton) {
@@ -109,7 +106,6 @@ function revealSite() {
                 );
             }
 
-        
             openChatBox();
 
         }, 1200);
@@ -128,7 +124,6 @@ function revealSite() {
         openChatBox();
     }
 }
-
 
 
 if (introVideo) {
@@ -158,7 +153,6 @@ if (introVideo) {
     );
 
 
-  
     setTimeout(() => {
 
         if (
@@ -175,7 +169,6 @@ if (introVideo) {
 }
 
 
-
 if (intro) {
 
     intro.addEventListener(
@@ -186,9 +179,10 @@ if (intro) {
 }
 
 
-
 let currentStep = 0;
 let problemFollowUp = false;
+let conversationComplete = false;
+
 
 const visitorData = {
 
@@ -202,16 +196,19 @@ const visitorData = {
 
 
 const questions = [
-  "First things first. What should I call you?",
 
-  "How old are you? Just the number. I promise I won't judge.",
+    "First things first. What should I call you?",
 
-  "Where are you based?",
+    "How old are you? Just the number. I promise I won't judge.",
 
-  "What's your Gmail? Yes, Gmail specifically.",
+    "Where are you based?",
 
-  "Alright. What's going on?",
+    "What's your Gmail? Yes, Gmail specifically.",
+
+    "Alright. What's going on?"
+
 ];
+
 
 const fields = [
 
@@ -222,7 +219,6 @@ const fields = [
     "grievance"
 
 ];
-
 
 
 function addMessage(text, who = "bot") {
@@ -241,7 +237,6 @@ function addMessage(text, who = "bot") {
         messages.scrollHeight;
 
 }
-
 
 
 function showTyping() {
@@ -278,27 +273,26 @@ function removeTyping() {
     }
 
 }
-function addMessage(text, who = "bot") {
-
-    if (!messages) return;
-
-    const div = document.createElement("div");
-
-    div.className = "msg " + who;
-
-    div.textContent = text;
-
-    messages.appendChild(div);
-
-    messages.scrollTop =
-        messages.scrollHeight;
-
-}
 
 
 function getWraithResponse(text) {
 
     const message = text.toLowerCase();
+
+
+    if (
+        message.includes("unsafe") ||
+        message.includes("danger") ||
+        message.includes("threat") ||
+        message.includes("threatened") ||
+        message.includes("scared") ||
+        message.includes("afraid")
+    ) {
+
+        return "Okay. That's serious. Forget everything else for a second. Are you safe right now?";
+
+    }
+
 
     if (
         message.includes("college") ||
@@ -307,16 +301,22 @@ function getWraithResponse(text) {
         message.includes("marks") ||
         message.includes("study")
     ) {
+
         return "College. Of course. Because apparently life wasn't stressful enough already. What's been bothering you?";
+
     }
+
 
     if (
         message.includes("friend") ||
         message.includes("bestie") ||
         message.includes("friendship")
     ) {
+
         return "Okay. This sounds personal. What happened?";
+
     }
+
 
     if (
         message.includes("family") ||
@@ -324,18 +324,11 @@ function getWraithResponse(text) {
         message.includes("parents") ||
         message.includes("home")
     ) {
+
         return "Family stuff. Never exactly simple, is it? Tell me what's going on.";
+
     }
 
-    if (
-        message.includes("scared") ||
-        message.includes("afraid") ||
-        message.includes("unsafe") ||
-        message.includes("danger") ||
-        message.includes("threat")
-    ) {
-        return "Okay. That's serious. Forget everything else for a second. Are you safe right now?";
-    }
 
     if (
         message.includes("sad") ||
@@ -343,30 +336,116 @@ function getWraithResponse(text) {
         message.includes("alone") ||
         message.includes("cry")
     ) {
+
         return "Hey. You don't have to pretend you're fine with me. Tell me what's going on.";
+
     }
+
 
     if (
         message.includes("angry") ||
         message.includes("mad") ||
         message.includes("furious")
     ) {
+
         return "Okay. Someone has clearly managed to annoy you. I need the story.";
+
     }
+
 
     if (
         message.includes("stress") ||
         message.includes("stressed") ||
         message.includes("overwhelmed")
     ) {
+
         return "Sounds like you've got a lot on your plate. Let's untangle it one thing at a time.";
+
     }
 
+
+    if (
+        message.includes("confused") ||
+        message.includes("lost") ||
+        message.includes("don't know")
+    ) {
+
+        return "That's okay. You don't need to have everything figured out. Start wherever it makes sense.";
+
+    }
+
+
     return "Okay. You've got my attention. Tell me a little more.";
+
 }
 
 
-async function handleSend(event) {
+async function submitGrievance() {
+
+    addMessage(
+        "Give me a moment while I send this through.",
+        "bot"
+    );
+
+
+    try {
+
+        const response = await fetch(
+            "https://ashwinams.pythonanywhere.com/submit-grievance",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(visitorData)
+            }
+        );
+
+
+        const result =
+            await response.json();
+
+
+        if (response.ok) {
+
+            addMessage(
+                "It's been submitted. I've got it from here.",
+                "bot"
+            );
+
+            conversationComplete = true;
+
+            if (input) {
+                input.placeholder =
+                    "Signal received.";
+            }
+
+        } else {
+
+            console.error(result);
+
+            addMessage(
+                "I couldn't submit this right now. The case system seems to be offline.",
+                "bot"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        addMessage(
+            "I couldn't reach the submission system. The server might be offline.",
+            "bot"
+        );
+
+    }
+
+}
+
 
 async function handleSend(event) {
 
@@ -374,61 +453,122 @@ async function handleSend(event) {
         event.preventDefault();
     }
 
+
     if (!input) return;
+
+
+    if (conversationComplete) {
+        return;
+    }
+
 
     const text =
         input.value.trim();
 
+
     if (!text) return;
 
 
-    
     addMessage(
         text,
         "user"
     );
 
 
-    
     input.value = "";
 
 
-if (currentStep === 1) {
-    const age = Number(text);
+    if (problemFollowUp) {
 
-    if (!Number.isInteger(age) || age < 1 ) {
+        visitorData.grievance +=
+            "\n\nAdditional details: " + text;
+
+        problemFollowUp = false;
+
+
+        showTyping();
+
+
+        await new Promise(
+            resolve =>
+                setTimeout(resolve, 800)
+        );
+
+
+        removeTyping();
+
+
         addMessage(
-            "Please enter age in numbers",
+            "Okay. I think I've got the picture now. I'll take it from here.",
             "bot"
         );
-        return;
-    }
-}
- 
 
-if (currentStep === 3) {
-    const emailPattern = /^[^\s@]+@gmail\.com$/i;
 
-    if (!emailPattern.test(text)) {
-        addMessage(
-            "That doesn't look like a valid Gmail address. Try again.",
-            "bot"
+        await new Promise(
+            resolve =>
+                setTimeout(resolve, 600)
         );
+
+
+        await submitGrievance();
+
         return;
     }
-}
 
 
-if (currentStep < fields.length) {
-    visitorData[
-        fields[currentStep]
-    ] = text;
-}
+    if (currentStep === 1) {
+
+        const age =
+            Number(text);
 
 
-currentStep++;
+        if (
+            !Number.isInteger(age) ||
+            age < 1
+        ) {
 
-    
+            addMessage(
+                "I need the actual number. I'm good, but I can't guess your age.",
+                "bot"
+            );
+
+            return;
+        }
+
+    }
+
+
+    if (currentStep === 3) {
+
+        const emailPattern =
+            /^[^\s@]+@gmail\.com$/i;
+
+
+        if (!emailPattern.test(text)) {
+
+            addMessage(
+                "That doesn't look like a valid Gmail address. Try again.",
+                "bot"
+            );
+
+            return;
+        }
+
+    }
+
+
+    if (currentStep < fields.length) {
+
+        visitorData[
+            fields[currentStep]
+        ] = text;
+
+    }
+
+
+    currentStep++;
+
+
     showTyping();
 
 
@@ -439,7 +579,6 @@ currentStep++;
 
 
     removeTyping();
-
 
 
     if (
@@ -458,72 +597,44 @@ currentStep++;
     }
 
 
-   
+    problemFollowUp = true;
+
 
     addMessage(
-        "Got it. Give me a moment while I send this through.",
+        getWraithResponse(text),
         "bot"
     );
 
 
-    try {
+    if (input) {
 
-       const response = await fetch(
-    "https://ashwinams.pythonanywhere.com/submit-grievance",
-    {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(visitorData)
-    }
-);
-
-const result = await response.json();
-
-if (response.ok) {
-
-    addMessage(
-        "It's been submitted. I've got it from here.",
-        "bot"
-    );
-
-} else {
-
-    console.error(result);
-
-    addMessage(
-        "I couldn't submit this right now. The case system seems to be offline.",
-        "bot"
-    );
-}
-    } catch (error) {
-
-        console.error(error);
-
-        addMessage(
-            "I couldn't reach the submission system. The server might be offline.",
-            "bot"
-        );
+        input.placeholder =
+            "Tell me more...";
 
     }
 
 }
-
-
 
 
 function updatePlaceholder() {
 
     if (!input) return;
 
+
     const placeholders = [
+
         "Your name...",
+
         "Just the number...",
+
         "Where are you from...",
+
         "Your Gmail...",
+
         "Tell me what happened..."
+
     ];
+
 
     if (currentStep < placeholders.length) {
 
@@ -533,13 +644,11 @@ function updatePlaceholder() {
     } else {
 
         input.placeholder =
-            "Message Wraith...";
+            "Tell me more...";
 
     }
 
 }
-
-
 
 
 if (chatForm) {
@@ -550,14 +659,28 @@ if (chatForm) {
     );
 
 }
+
+
 function startChat() {
 
     if (!messages) return;
 
+
+    currentStep = 0;
+    problemFollowUp = false;
+    conversationComplete = false;
+
+
+    visitorData.name = "";
+    visitorData.age = "";
+    visitorData.location = "";
+    visitorData.email = "";
+    visitorData.grievance = "";
+
+
     messages.innerHTML = "";
 
 
-    
     addMessage(
         "Hey. I'm Wraith.",
         "bot"
@@ -576,8 +699,6 @@ function startChat() {
     }, 700);
 
 }
-
-
 
 
 const profileChatButton =
@@ -599,8 +720,23 @@ if (profileChatButton) {
 
 }
 
+
 startChat();
-document.addEventListener("mousemove", (e) => {
-  document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
-  document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
-});
+
+
+document.addEventListener(
+    "mousemove",
+    (e) => {
+
+        document.documentElement.style.setProperty(
+            "--mouse-x",
+            `${e.clientX}px`
+        );
+
+        document.documentElement.style.setProperty(
+            "--mouse-y",
+            `${e.clientY}px`
+        );
+
+    }
+);
