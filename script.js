@@ -700,6 +700,550 @@ function getWraithResponse(text) {
     ];
 
 }
+function getFinalWraithResponse(text) {
+
+    const message = text.toLowerCase();
+
+    const categories = {
+
+        betrayal: {
+            clues: [
+                "betrayed",
+                "betrayal",
+                "betray me",
+                "betrayed me",
+                "betrayal by",
+                "broke my trust",
+                "lost my trust",
+                "can't trust",
+                "cannot trust",
+                "don't trust",
+                "do not trust",
+                "trusted them",
+                "trusted her",
+                "trusted him",
+                "trusted you",
+                "lied to me",
+                "lied about",
+                "kept it from me",
+                "hid it from me",
+                "wasn't honest",
+                "was not honest",
+                "deceived me",
+                "backstabbed",
+                "backstab",
+                "went behind my back"
+            ],
+
+            responses: [
+                "I can see why that felt like a betrayal. When someone you trust lies to you, it can change how you see everything else. I've got your message, and I'll get back to you as soon as I can.",
+
+                "Yeah, I understand why you're hurt. It's not just the lie, it's the fact that you trusted them in the first place. I've got the details, and I'll look into this as soon as I can.",
+
+                "That sounds like a pretty serious hit to your trust. I can see why you're upset. I've got your message, and I'll get back to you as soon as possible.",
+
+                "Okay. I get why you're calling this a betrayal. When someone you trust does something like that, it doesn't exactly leave you feeling great. I've got this from here, and I'll get back to you soon."
+            ]
+        },
+
+
+        lying: {
+            clues: [
+                "lied",
+                "lie",
+                "lying",
+                "told me a lie",
+                "not telling the truth",
+                "wasn't telling the truth",
+                "was not telling the truth",
+                "made up a story",
+                "made something up",
+                "gave me a fake excuse",
+                "fake excuse",
+                "caught them lying",
+                "caught her lying",
+                "caught him lying"
+            ],
+
+            responses: [
+                "Okay, so someone decided honesty was optional. That's frustrating. I've got the details, and I'll get back to you as soon as I can.",
+
+                "Right. Someone wasn't exactly honest with you. I can see why that would bother you. I've got your message, and I'll get back to you soon.",
+
+                "That's a pretty strange thing to have to deal with. Especially when you were expecting the truth. I've got the details, and I'll look into it as soon as I can."
+            ]
+        },
+
+
+        friendship: {
+            clues: [
+                "my friend",
+                "my friends",
+                "best friend",
+                "bestie",
+                "friendship",
+                "friend group",
+                "close friend",
+                "we stopped talking",
+                "stopped talking to me",
+                "not talking to me",
+                "ignored me",
+                "ignoring me",
+                "ghosted me",
+                "left me out",
+                "excluded me",
+                "lost a friend",
+                "friendship ended"
+            ],
+
+            responses: [
+                "Yeah, I can see why this is bothering you. Things get complicated when it's someone you actually care about. I've got your message, and I'll get back to you as soon as I can.",
+
+                "Friendship problems are rarely as simple as they look from the outside. I get why this got to you. I've got the details, and I'll get back to you soon.",
+
+                "Okay. Whatever happened here clearly mattered to you. I've got your message, and I'll take a closer look as soon as I can."
+            ]
+        },
+
+
+        anger: {
+            clues: [
+                "angry",
+                "mad",
+                "furious",
+                "pissed",
+                "annoyed",
+                "irritated",
+                "frustrated",
+                "can't stand",
+                "hate them",
+                "hate him",
+                "hate her",
+                "they made me angry",
+                "made me mad"
+            ],
+
+            responses: [
+                "Okay, you're definitely angry about this. And honestly, I probably would be too. I've got your message, and I'll get back to you as soon as I can.",
+
+                "Yeah, you're upset. I can tell. Let's not make any dramatic decisions while you're this angry. I've got the details, and I'll get back to you soon.",
+
+                "Someone has clearly managed to get under your skin. I've got your message, and I'll look into it as soon as I can."
+            ]
+        },
+
+
+        sadness: {
+            clues: [
+                "sad",
+                "really sad",
+                "crying",
+                "been crying",
+                "keep crying",
+                "feel empty",
+                "feel numb",
+                "heartbroken",
+                "broken heart",
+                "miserable",
+                "feel terrible",
+                "feel awful",
+                "feel horrible",
+                "feel hopeless",
+                "feel alone",
+                "feel lonely",
+                "lonely",
+                "alone"
+            ],
+
+            responses: [
+                "Hey. I'm sorry you're dealing with that. You don't have to make it sound smaller than it feels. I've got your message, and I'll get back to you as soon as I can.",
+
+                "That sounds really hard to carry around on your own. I'm glad you reached out. I've got the details, and I'll get back to you soon.",
+
+                "Okay. That sounds like it's been weighing on you for a while. I've got your message, and I'll take a closer look as soon as I can."
+            ]
+        },
+
+
+        fear: {
+            clues: [
+                "scared",
+                "afraid",
+                "terrified",
+                "frightened",
+                "nervous",
+                "worried",
+                "panicking",
+                "panic",
+                "fear",
+                "feel unsafe",
+                "don't feel safe",
+                "do not feel safe"
+            ],
+
+            responses: [
+                "Hey. It's okay to be scared. Whatever's happening, you don't have to deal with it completely on your own. I've got your message, and I'll get back to you as soon as I can.",
+
+                "Okay. Take a breath for me. I can see why you're worried. I've got the details, and I'll get back to you as soon as possible.",
+
+                "I hear you. Whatever's making you feel this way matters. I've got your message, and I'll look into it as soon as I can."
+            ]
+        },
+
+
+        stress: {
+            clues: [
+                "stressed",
+                "stress",
+                "overwhelmed",
+                "too much",
+                "can't handle",
+                "cannot handle",
+                "too many things",
+                "everything is happening",
+                "everything at once",
+                "under pressure",
+                "pressure",
+                "burnt out",
+                "burned out",
+                "exhausted"
+            ],
+
+            responses: [
+                "Okay. You've clearly got too much happening at once. You don't need to solve everything tonight. I've got your message, and I'll get back to you as soon as I can.",
+
+                "That sounds like a lot to carry at once. Take a breath. I've got the details, and I'll get back to you soon.",
+
+                "Yeah, that's a lot. Let's not make you carry the entire universe at once. I've got your message, and I'll get back to you as soon as I can."
+            ]
+        },
+
+
+        academic: {
+            clues: [
+                "exam",
+                "exams",
+                "test",
+                "tests",
+                "assignment",
+                "assignments",
+                "college",
+                "university",
+                "semester",
+                "professor",
+                "teacher",
+                "lecturer",
+                "marks",
+                "grades",
+                "grade",
+                "cgpa",
+                "gpa",
+                "backlog",
+                "attendance",
+                "viva",
+                "lab",
+                "project",
+                "presentation",
+                "deadline",
+                "study",
+                "studying",
+                "course",
+                "subject",
+                "failed my exam",
+                "failed the exam",
+                "failed a test",
+                "failed my test"
+            ],
+
+            responses: [
+                "Academic chaos. Naturally. Because apparently one deadline at a time would've been too peaceful. I've got your message, and I'll get back to you as soon as I can.",
+
+                "Okay, you've got a lot happening with college. I've got the details, and I'll get back to you as soon as possible.",
+
+                "Right. Exams, deadlines, and general academic suffering. I've got your message, and I'll take a closer look as soon as I can."
+            ]
+        },
+
+
+        career: {
+            clues: [
+                "job",
+                "work",
+                "boss",
+                "manager",
+                "coworker",
+                "colleague",
+                "internship",
+                "interview",
+                "interviews",
+                "resume",
+                "cv",
+                "career",
+                "placement",
+                "office",
+                "salary",
+                "promotion",
+                "fired",
+                "rejected from the job",
+                "failed my interview",
+                "lost my job"
+            ],
+
+            responses: [
+                "Okay. Career problems. Humanity really does enjoy making adulthood unnecessarily complicated. I've got your message, and I'll get back to you soon.",
+
+                "That's a rough situation to be dealing with. I've got the details, and I'll look into it as soon as I can.",
+
+                "Right. Something went wrong on the career front. I've got your message, and I'll get back to you as soon as possible."
+            ]
+        },
+
+
+        family: {
+            clues: [
+                "my mom",
+                "my mum",
+                "my mother",
+                "my dad",
+                "my father",
+                "my parents",
+                "my parent",
+                "my brother",
+                "my sister",
+                "my sibling",
+                "my family",
+                "family problem",
+                "family issue",
+                "argument with my parents",
+                "fight with my parents",
+                "parents won't",
+                "parents don't",
+                "parents are"
+            ],
+
+            responses: [
+                "Family stuff can get complicated very quickly. I can see why this is weighing on you. I've got your message, and I'll get back to you as soon as I can.",
+
+                "Okay. This sounds personal. I've got the details, and I'll take a closer look as soon as possible.",
+
+                "Family problems are rarely straightforward. I've got your message, and I'll get back to you soon."
+            ]
+        },
+
+
+        money: {
+            clues: [
+                "money",
+                "broke",
+                "debt",
+                "loan",
+                "rent",
+                "fees",
+                "tuition",
+                "financial",
+                "can't afford",
+                "cannot afford",
+                "expensive",
+                "bill",
+                "bills",
+                "payment",
+                "salary",
+                "bank"
+            ],
+
+            responses: [
+                "Money problems. Humanity's favourite recurring villain. I've got your message, and I'll get back to you as soon as I can.",
+
+                "Okay. Financial problems can pile up quickly. I've got the details, and I'll get back to you soon.",
+
+                "Right. Money is making everything more complicated. I've got your message, and I'll take a closer look as soon as possible."
+            ]
+        },
+
+
+        confusion: {
+            clues: [
+                "confused",
+                "confusing",
+                "don't know what to do",
+                "do not know what to do",
+                "don't know what I'm doing",
+                "do not know what I'm doing",
+                "lost",
+                "no idea",
+                "not sure",
+                "unsure",
+                "can't decide",
+                "cannot decide",
+                "don't understand",
+                "do not understand"
+            ],
+
+            responses: [
+                "Okay. You don't have to have all the answers right now. I've got your message, and I'll get back to you as soon as I can.",
+
+                "Being stuck doesn't mean you're out of options. I've got the details, and I'll get back to you soon.",
+
+                "Right. Things are a little unclear at the moment. I've got your message, and I'll take a closer look as soon as possible."
+            ]
+        },
+
+
+        rejection: {
+            clues: [
+                "rejected",
+                "rejection",
+                "turned me down",
+                "said no",
+                "didn't get",
+                "did not get",
+                "wasn't accepted",
+                "was not accepted",
+                "didn't choose me",
+                "did not choose me",
+                "failed the interview",
+                "failed my interview"
+            ],
+
+            responses: [
+                "Getting rejected hurts. Doesn't mean you're finished, though. I've got your message, and I'll get back to you as soon as I can.",
+
+                "Okay. That one stings. Give yourself a minute before deciding it means everything is ruined. I've got the details, and I'll get back to you soon.",
+
+                "That's a rough one. But one rejection doesn't get to write the entire story. I've got your message, and I'll look into it as soon as possible."
+            ]
+        },
+
+
+        guilt: {
+            clues: [
+                "my fault",
+                "it's my fault",
+                "it is my fault",
+                "feel guilty",
+                "guilty",
+                "feel bad about",
+                "regret",
+                "regret what I did",
+                "messed up",
+                "screwed up",
+                "ruined everything",
+                "hurt someone",
+                "let them down",
+                "let her down",
+                "let him down"
+            ],
+
+            responses: [
+                "You clearly care about what happened, otherwise you wouldn't be carrying this much guilt. I've got your message, and I'll get back to you as soon as I can.",
+
+                "Okay. You made a mistake, and you're clearly taking it seriously. I've got the details, and I'll get back to you soon.",
+
+                "You don't have to decide you're a terrible person because something went wrong. I've got your message, and I'll take a closer look as soon as possible."
+            ]
+        },
+
+
+        safety: {
+            clues: [
+                "someone is following me",
+                "following me",
+                "stalking me",
+                "threatening me",
+                "someone threatened me",
+                "someone attacked me",
+                "attacked me",
+                "someone hurt me",
+                "hurt me",
+                "hit me",
+                "hitting me",
+                "abuse",
+                "abusive",
+                "harassed me",
+                "harassment",
+                "not safe",
+                "unsafe",
+                "danger",
+                "dangerous",
+                "afraid to go home",
+                "scared to go home"
+            ],
+
+            responses: [
+                "Okay. This is serious, and I'm glad you reached out. Please get somewhere safe and contact someone you trust if you're in immediate danger. I've got your message, and I'll get back to you as soon as I can.",
+
+                "I'm taking this one seriously. Your safety comes first, so please get somewhere safe and reach out to someone you trust if you need immediate help. I've got your details, and I'll get back to you as soon as possible."
+            ]
+        },
+
+
+        general: {
+            clues: [],
+
+            responses: [
+                "Okay. I can see why this has been bothering you. I've got your message, and I'll get back to you as soon as I can.",
+
+                "Right. That's clearly been sitting on your mind. I've got the details, and I'll get back to you soon.",
+
+                "Okay. I've got the picture now. I'll take a closer look and get back to you as soon as I can.",
+
+                "I hear you. I've got your message, and I'll get back to you as soon as possible."
+            ]
+        }
+
+    };
+
+
+    const scores = {};
+
+
+    for (const category in categories) {
+
+        scores[category] = 0;
+
+        for (const clue of categories[category].clues) {
+
+            if (message.includes(clue)) {
+
+                scores[category] +=
+                    clue.includes(" ")
+                        ? 3
+                        : 1;
+
+            }
+
+        }
+
+    }
+
+
+    let bestCategory = "general";
+    let highestScore = 0;
+
+
+    for (const category in scores) {
+
+        if (scores[category] > highestScore) {
+
+            highestScore = scores[category];
+            bestCategory = category;
+
+        }
+
+    }
+
+
+    const responses =
+        categories[bestCategory].responses;
+
+
+    return responses[
+        Math.floor(
+            Math.random() * responses.length
+        )
+    ];
+
+}
 
 async function submitGrievance() {
 
