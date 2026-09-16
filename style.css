@@ -29,6 +29,7 @@ input {
   font: inherit;
 }
 
+
 #site {
   min-height: 100vh;
 
@@ -38,6 +39,9 @@ input {
       transparent 28%),
     var(--ink);
 }
+
+
+
 
 .navbar {
   position: fixed;
@@ -89,6 +93,9 @@ input {
   color: var(--gold-bright);
 }
 
+
+
+
 .hero {
   min-height: 100vh;
   position: relative;
@@ -97,6 +104,7 @@ input {
   padding: 120px 10vw 90px;
   overflow: hidden;
 }
+
 
 .hero-copy {
   position: relative;
@@ -159,7 +167,6 @@ input {
 
   line-height: 1.7;
 }
-
 .hero-actions {
   display: flex;
 
@@ -297,6 +304,7 @@ input {
   writing-mode: vertical-rl;
 }
 
+
 .about-layout {
   width: 100%;
 
@@ -306,6 +314,9 @@ input {
 
   gap: 80px;
 }
+
+
+
 
 .about-image {
   position: relative;
@@ -319,6 +330,9 @@ input {
 
   order: 2;
 }
+
+
+
 
 .about-image::before {
   content: "";
@@ -341,6 +355,8 @@ input {
 
   animation: wraithGlow 4s ease-in-out infinite;
 }
+
+
 
 .about-image::after {
   content: "";
@@ -383,6 +399,7 @@ input {
     filter 0.5s ease;
 }
 
+
 .about-image:hover img {
   transform: translateY(-8px) scale(1.02);
 
@@ -390,7 +407,10 @@ input {
     drop-shadow(0 0 20px rgba(231, 200, 116, 0.5)) drop-shadow(0 0 70px rgba(201, 162, 75, 0.3));
 }
 
+
+
 @keyframes wraithGlow {
+
   0%,
   100% {
     transform: scale(0.9);
@@ -401,9 +421,12 @@ input {
     transform: scale(1.08);
     opacity: 1;
   }
+
 }
 
+
 @keyframes wraithAura {
+
   0% {
     transform: rotate(-15deg) scale(0.9);
     opacity: 0.4;
@@ -413,7 +436,10 @@ input {
     transform: rotate(15deg) scale(1.1);
     opacity: 0.8;
   }
+
 }
+
+
 
 .wraith-block-content {
   width: 55%;
@@ -423,6 +449,8 @@ input {
 
   order: 1;
 }
+
+
 
 #intro {
   position: fixed;
@@ -474,6 +502,9 @@ input {
   pointer-events: none;
 }
 
+
+
+
 .chat-dialog {
   position: fixed;
   inset: 0;
@@ -500,6 +531,9 @@ input {
   pointer-events: auto;
 }
 
+
+
+
 .chat-overlay {
   position: absolute;
   inset: 0;
@@ -512,6 +546,8 @@ input {
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
+
+
 
 .hologram {
   position: relative;
@@ -540,6 +576,8 @@ input {
   opacity: 1;
 }
 
+
+
 .chat-shell {
   position: relative;
 
@@ -559,7 +597,7 @@ input {
 
   box-shadow:0 25px 80px rgba(0, 0, 0, 0.45),
     0 0 35px rgba(201, 162, 75, 0.035);
-
+  
   transform:
     translateY(-20px);
 
@@ -568,6 +606,7 @@ input {
 }
 
 @keyframes hologram-float {
+
   0%,
   100% {
     transform:
@@ -580,6 +619,8 @@ input {
   }
 }
 
+
+
 .chat-shell h2,
 .chat-shell p,
 .chat-shell .msg,
@@ -588,6 +629,9 @@ input {
   text-shadow:
     0 0 10px rgba(201, 162, 75, 0.18);
 }
+
+
+
 
 .chat-header {
   position: relative;
@@ -604,6 +648,9 @@ input {
 
   border: none;
 }
+
+
+
 
 .sigil {
   flex: none;
@@ -643,6 +690,9 @@ input {
     0 0 12px rgba(231, 200, 116, 0.8);
 }
 
+
+
+
 .header-text {
   flex: 1;
 }
@@ -681,6 +731,8 @@ input {
     1px;
 }
 
+
+
 .status {
   display: flex;
   align-items: center;
@@ -712,6 +764,9 @@ input {
   box-shadow:
     0 0 10px var(--gold-bright);
 }
+
+
+
 
 .chat-close {
   margin-left: 18px;
@@ -746,6 +801,8 @@ input {
     0 0 12px rgba(201, 162, 75, 0.8);
 }
 
+
+
 .messages {
   position: relative;
 
@@ -774,6 +831,9 @@ input {
   background:
     rgba(201, 162, 75, 0.35);
 }
+
+
+
 
 .msg {
   max-width: 70%;
@@ -810,6 +870,9 @@ input {
   }
 }
 
+
+
+
 .msg.bot {
   align-self: flex-start;
 
@@ -826,6 +889,9 @@ input {
     blur(2px);
 }
 
+
+
+
 .msg.user {
   align-self: flex-end;
 
@@ -837,6 +903,8 @@ input {
   background:
     rgba(201, 162, 75, 0.035);
 }
+
+
 
 .chat-input {
   position: relative;
@@ -922,6 +990,9 @@ input {
     0 0 12px rgba(201, 162, 75, 0.8);
 }
 
+
+
+
 .phone-projector {
   position: absolute;
 
@@ -937,6 +1008,8 @@ input {
 
   pointer-events: none;
 }
+
+
 
 .phone-glow {
   position: absolute;
@@ -963,6 +1036,8 @@ input {
   pointer-events: none;
 }
 
+
+
 .phone {
   position: absolute;
 
@@ -987,6 +1062,8 @@ input {
   z-index: 3;
 }
 
+
+
 .phone-camera {
   position: absolute;
 
@@ -1002,6 +1079,8 @@ input {
 
   background: #1b1710;
 }
+
+
 
 .phone-screen {
   position: absolute;
@@ -1027,6 +1106,9 @@ input {
   justify-content: center;
 }
 
+
+
+
 .phone-symbol {
   font-size: 2rem;
 
@@ -1039,7 +1121,9 @@ input {
   animation: phonePulse 2s ease-in-out infinite;
 }
 
+
 @keyframes phonePulse {
+
   0%,
   100% {
     opacity: 0.5;
@@ -1050,13 +1134,20 @@ input {
     opacity: 1;
     transform: scale(1.1);
   }
+
 }
+
+
 
 body.chat-open {
   overflow: hidden;
 }
 
+
+
+
 @media (max-width: 700px) {
+
   .chat-dialog {
     padding: 10px;
   }
@@ -1136,6 +1227,9 @@ body.chat-open {
       29px;
   }
 }
+/* =========================================================
+   DARK BACKGROUND
+========================================================= */
 
 .chat-overlay {
   position: absolute;
@@ -1151,6 +1245,9 @@ body.chat-open {
 
   -webkit-backdrop-filter: blur(3px);
 }
+
+
+
 
 .hologram {
   position: relative;
@@ -1183,6 +1280,8 @@ body.chat-open {
   opacity: 1;
 }
 
+
+
 .chat-shell {
   position: relative;
 
@@ -1212,6 +1311,7 @@ body.chat-open {
 }
 
 @keyframes hologram-float {
+
   0%,
   100% {
     transform:
@@ -1223,6 +1323,9 @@ body.chat-open {
       translateY(-26px);
   }
 }
+
+
+
 
 .chat-header {
   position: relative;
@@ -1244,6 +1347,9 @@ body.chat-open {
 .sigile {
   flex: none;
 }
+
+
+
 
 .header-text h2 {
   margin: 0;
@@ -1287,6 +1393,9 @@ body.chat-open {
   letter-spacing: 3px;
 }
 
+
+
+
 .status {
   display: flex;
 
@@ -1316,6 +1425,9 @@ body.chat-open {
   box-shadow:
     0 0 10px var(--gold-bright);
 }
+
+
+
 
 .chat-close {
   margin-left: 18px;
@@ -1376,7 +1488,6 @@ body.chat-open {
   background:
     rgba(201, 162, 75, 0.35);
 }
-
 .msg {
   max-width: 70%;
   padding: 14px 20px;
@@ -1410,6 +1521,7 @@ body.chat-open {
   }
 }
 
+
 .msg.bot {
   align-self: flex-start;
 
@@ -1422,6 +1534,7 @@ body.chat-open {
     inset 0 0 20px rgba(231, 200, 116, 0.08);
 }
 
+
 .msg.user {
   align-self: flex-end;
   text-align: right;
@@ -1430,6 +1543,8 @@ body.chat-open {
 
   background: rgba(201, 162, 75, 0.22);
 }
+
+
 
 .typing {
   display: flex;
@@ -1464,6 +1579,7 @@ body.chat-open {
 }
 
 @keyframes typing-dot {
+
   0%,
   100% {
     opacity: .2;
@@ -1479,6 +1595,7 @@ body.chat-open {
       translateY(-4px);
   }
 }
+
 
 .chat-input {
   position: relative;
@@ -1554,11 +1671,15 @@ body.chat-open {
     0 0 12px rgba(201, 162, 75, 0.8);
 }
 
+
 body.chat-open {
   overflow: hidden;
 }
 
+
+
 @media (max-width: 700px) {
+
   .navbar {
     padding: 22px;
   }
@@ -1571,6 +1692,8 @@ body.chat-open {
     font-size: 8px;
   }
 
+
+ 
   .hero {
     padding:
       120px 25px 90px;
@@ -1621,6 +1744,7 @@ body.chat-open {
       20px;
   }
 
+
   .about {
     display:
       block;
@@ -1644,6 +1768,8 @@ body.chat-open {
       40px;
   }
 
+
+  
   .chat-dialog {
     padding:
       10px;
@@ -1734,9 +1860,13 @@ body.chat-open {
     padding-bottom:
       65px;
   }
+
 }
 
+
+
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior:
       auto;
@@ -1758,6 +1888,7 @@ body.chat-open {
     animation:
       none !important;
   }
+
 }
 
 #wraith-world {
@@ -1765,6 +1896,8 @@ body.chat-open {
   background: #090705;
   color: #eee5d2;
 }
+
+
 
 #wraith-world>.wraith-intro,
 #wraith-world>.wraith-origin,
@@ -1843,6 +1976,9 @@ body.chat-open {
   animation: magicFloat4 20s ease-in-out infinite;
 }
 
+
+
+
 .magic-particle {
   position: absolute;
   width: 4px;
@@ -1882,7 +2018,11 @@ body.chat-open {
   animation: particleFloat4 10s ease-in-out infinite;
 }
 
+
+
+
 @keyframes magicFloat1 {
+
   0%,
   100% {
     transform: translate(0, 0) scale(1);
@@ -1894,6 +2034,7 @@ body.chat-open {
 }
 
 @keyframes magicFloat2 {
+
   0%,
   100% {
     transform: translate(0, 0) scale(1);
@@ -1905,6 +2046,7 @@ body.chat-open {
 }
 
 @keyframes magicFloat3 {
+
   0%,
   100% {
     transform: translate(0, 0);
@@ -1916,6 +2058,7 @@ body.chat-open {
 }
 
 @keyframes magicFloat4 {
+
   0%,
   100% {
     transform: translate(0, 0);
@@ -1926,7 +2069,11 @@ body.chat-open {
   }
 }
 
+
+
+
 @keyframes particleFloat1 {
+
   0%,
   100% {
     transform: translate(0, 0);
@@ -1940,6 +2087,7 @@ body.chat-open {
 }
 
 @keyframes particleFloat2 {
+
   0%,
   100% {
     transform: translate(0, 0);
@@ -1953,6 +2101,7 @@ body.chat-open {
 }
 
 @keyframes particleFloat3 {
+
   0%,
   100% {
     transform: translate(0, 0);
@@ -1966,6 +2115,7 @@ body.chat-open {
 }
 
 @keyframes particleFloat4 {
+
   0%,
   100% {
     transform: translate(0, 0);
@@ -1977,6 +2127,7 @@ body.chat-open {
     opacity: 1;
   }
 }
+
 
 body::before {
   content: "";
@@ -2011,6 +2162,7 @@ body::before {
   animation: chaosPulse 3s ease-in-out infinite;
 }
 
+
 body::after {
   content: "✦";
 
@@ -2041,7 +2193,10 @@ body::after {
   animation: magicSpark 1.8s ease-in-out infinite;
 }
 
+
+
 @keyframes chaosPulse {
+
   0%,
   100% {
     opacity: 0.55;
@@ -2054,7 +2209,10 @@ body::after {
   }
 }
 
+
+
 @keyframes magicSpark {
+
   0%,
   100% {
     opacity: 0.5;
@@ -2067,7 +2225,9 @@ body::after {
   }
 }
 
+
 .wraith-intro {
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2115,6 +2275,7 @@ body::after {
 }
 
 @keyframes magicPulse {
+
   0%,
   100% {
     transform: scale(0.9);
@@ -2153,6 +2314,7 @@ body::after {
   z-index: 2;
 }
 
+
 .wraith-tag {
   margin-bottom: 25px;
 
@@ -2162,6 +2324,7 @@ body::after {
 
   color: #a99d86;
 }
+
 
 .wraith-intro h1 {
   margin: 0;
@@ -2179,6 +2342,7 @@ body::after {
     0 0 70px rgba(201, 162, 75, 0.2);
 }
 
+
 .wraith-intro p {
   max-width: 500px;
 
@@ -2190,6 +2354,7 @@ body::after {
 
   color: #c9bfac;
 }
+
 
 .wraith-scroll {
   margin-top: 70px;
@@ -2203,7 +2368,23 @@ body::after {
   animation: wraithScroll 2s infinite ease-in-out;
 }
 
+
 @keyframes wraithScroll {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(7px);
+  }
+
+}
+@keyframes wraithScroll {
+
   0%,
   100% {
     opacity: 0.3;
@@ -2215,6 +2396,47 @@ body::after {
     transform: translateY(7px);
   }
 }
+
+
+
+
+#wraith-world>.wraith-origin,
+#wraith-world>.wraith-powers,
+#wraith-world>.wraith-mission,
+#wraith-world>.wraith-personality,
+#wraith-world>.wraith-purpose {
+  border-top: 1px solid rgba(201, 162, 75, 0.15);
+}
+
+#wraith-world>.wraith-origin::before,
+#wraith-world>.wraith-powers::before,
+#wraith-world>.wraith-mission::before,
+#wraith-world>.wraith-personality::before,
+#wraith-world>.wraith-purpose::before {
+  content: "✦";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  color: #e7c874;
+  font-size: 11px;
+
+  text-shadow:
+    0 0 10px rgba(231, 200, 116, 0.7),
+    0 0 25px rgba(201, 162, 75, 0.3);
+
+  background: #090705;
+
+  padding: 0 14px;
+
+  z-index: 5;
+}
+
+
 
 .wraith-block-title {
   position: absolute;
@@ -2228,6 +2450,7 @@ body::after {
   gap: 20px;
 }
 
+
 .wraith-block-title span {
   font-size: 0.65rem;
 
@@ -2235,6 +2458,7 @@ body::after {
 
   color: rgba(201, 162, 75, 0.5);
 }
+
 
 .wraith-block-title h2 {
   margin: 0;
@@ -2246,6 +2470,8 @@ body::after {
   color: #c9a24b;
 }
 
+
+
 .wraith-block {
   background:
     radial-gradient(circle at 80% 50%,
@@ -2254,11 +2480,13 @@ body::after {
     #090705;
 }
 
+
 .wraith-block-content {
   max-width: 800px;
 
   margin-left: 10%;
 }
+
 
 .wraith-big-text {
   margin: 0 0 40px;
@@ -2274,6 +2502,7 @@ body::after {
   letter-spacing: 0.03em;
 }
 
+
 .wraith-block-content p:not(.wraith-big-text) {
   max-width: 650px;
 
@@ -2286,6 +2515,9 @@ body::after {
   color: #b9ae99;
 }
 
+
+
+
 .wraith-powers {
   background:
     radial-gradient(circle at 50% 50%,
@@ -2294,27 +2526,64 @@ body::after {
     #090705;
 }
 
+
 .power-list {
   width: min(900px, 100%);
 
   margin-left: 10%;
 }
 
-.power-item {
-  display: flex;
 
+.power-item {
+  position: relative;
+
+  display: flex;
   gap: 30px;
 
   padding: 30px 0;
 
   border-bottom: 1px solid rgba(201, 162, 75, 0.15);
+
+  transition:
+    padding-left 0.3s ease,
+    border-color 0.3s ease;
 }
+
+.power-item::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+
+  width: 0;
+  height: 1px;
+
+  background: #e7c874;
+
+  box-shadow:
+    0 0 8px rgba(231, 200, 116, 0.6),
+    0 0 18px rgba(201, 162, 75, 0.3);
+
+  transition: width 0.4s ease;
+}
+
+.power-item:hover {
+  padding-left: 12px;
+  border-color: rgba(201, 162, 75, 0.3);
+}
+
+.power-item:hover::after {
+  width: 100%;
+}
+
 
 .power-item>span {
   color: #e7c874;
 
   font-size: 1.3rem;
 }
+
 
 .power-item h3 {
   margin: 0 0 10px;
@@ -2326,6 +2595,7 @@ body::after {
   color: #e7c874;
 }
 
+
 .power-item p {
   margin: 0;
 
@@ -2334,48 +2604,87 @@ body::after {
   line-height: 1.6;
 }
 
+
+
 .wraith-mission {
+
   justify-content: center;
 
-  text-align: center;
+  text-align: left;
 
   background:
-    radial-gradient(circle at center,
+    radial-gradient(circle at 65% 50%,
       rgba(201, 162, 75, 0.13),
       transparent 50%),
     #090705;
 }
 
 .mission-content {
-  max-width: 900px;
+
+  width: min(950px, 100%);
+
+  margin-left: 12%;
 }
 
 .mission-main {
+
   margin: 0;
 
-  font-size: clamp(3rem, 7vw, 7rem);
+  font-size: clamp(3rem, 5vw, 5.2rem);
 
-  line-height: 0.95;
+  line-height: 0.92;
 
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
 
   color: #e7c874;
 
   text-shadow:
-    0 0 30px rgba(201, 162, 75, 0.25);
+    0 0 25px rgba(201, 162, 75, 0.25);
 }
 
-.mission-content p:not(.mission-main) {
-  max-width: 550px;
+.mission-description {
 
-  margin: 35px auto 0;
+  max-width: 460px;
+
+  margin-top: 45px;
+
+  padding-left: 25px;
+
+  border-left: 1px solid rgba(201, 162, 75, 0.35);
 
   color: #a99d86;
+
+  font-size: 0.95rem;
 
   line-height: 1.8;
 }
 
+.mission-description p {
+
+  margin: 0 0 12px;
+}
+
+.mission-description p:last-child {
+
+  margin-bottom: 0;
+}
+
+.mission-description p:first-child {
+
+  color: #e7c874;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 1.8rem;
+
+  font-style: italic;
+
+  margin-bottom: 18px;
+}
+
+
 .wraith-personality {
+  overflow: visible;
   background:
     linear-gradient(120deg,
       rgba(201, 162, 75, 0.04),
@@ -2384,112 +2693,186 @@ body::after {
 }
 
 .personality-content {
-  width: min(900px, 100%);
-
-  margin-left: 10%;
+  width: min(1000px, 100%);
+  margin-left: 8%;
 
   display: flex;
-
   flex-wrap: wrap;
 
-  gap: 14px;
+  column-gap: 45px;
+  row-gap: 70px;
+
+  padding-top: 80px;
 }
 
 .personality-word {
-  padding: 16px 22px;
+  position: relative;
+
+  width: 220px;
+  min-height: 6%;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 18px 22px;
 
   border: 1px solid rgba(201, 162, 75, 0.25);
 
   color: #e7c874;
-
   font-size: 0.7rem;
-
   letter-spacing: 0.22em;
+
+  cursor: pointer;
 
   transition:
     transform 0.3s ease,
-    background 0.3s ease;
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .personality-word:hover {
   transform: translateY(-5px);
 
   background: rgba(201, 162, 75, 0.07);
+
+  border-color: rgba(231, 200, 116, 0.7);
+
+  box-shadow:
+    0 0 20px rgba(201, 162, 75, 0.12),
+    0 0 45px rgba(201, 162, 75, 0.08);
 }
+
+.personality-name {
+  display: block;
+}
+
+
+
+.personality-description {
+  position: absolute;
+
+  left: 50%;
+  bottom: calc(100% + 22px);
+
+  width: 280px;
+
+  transform:
+    translateX(-50%) translateY(15px) scale(0.92);
+
+  opacity: 0;
+
+  color: #e7c874;
+
+  font-size: 0.85rem;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+
+  text-align: center;
+
+  pointer-events: none;
+
+  z-index: 20;
+
+  text-shadow:
+    0 0 12px rgba(201, 162, 75, 0.45),
+    0 0 30px rgba(201, 162, 75, 0.2);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s ease;
+}
+
+.personality-word:hover .personality-description {
+  opacity: 1;
+
+  transform:
+    translateX(-50%) translateY(0) scale(1);
+}
+
 
 .personality-quote {
   position: absolute;
 
-  right: 9vw;
-  bottom: 100px;
+  right: 6vw;
+  bottom: 55px;
 
-  max-width: 300px;
+  max-width: 220px;
 
   color: #a99d86;
 
-  font-size: 0.9rem;
-
-  line-height: 1.7;
+  font-size: 0.75rem;
+  line-height: 1.6;
 
   font-style: italic;
+
+  opacity: 0.7;
 }
 
 .wraith-purpose {
   justify-content: center;
-
-  text-align: center;
+  text-align: left;
 
   background:
-    radial-gradient(circle at center,
-      rgba(201, 162, 75, 0.15),
+    radial-gradient(circle at 65% 50%,
+      rgba(201, 162, 75, 0.10),
       transparent 50%),
     #090705;
 }
 
 .purpose-content {
-  max-width: 800px;
+  width: min(850px, 100%);
+  margin-left: 12%;
 }
 
 .purpose-main {
   margin: 0;
 
-  font-size: clamp(4rem, 9vw, 9rem);
-
-  line-height: 0.9;
-
-  letter-spacing: 0.12em;
+  font-size: clamp(2.6rem, 4.2vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: 0.05em;
 
   color: #e7c874;
 
   text-shadow:
-    0 0 35px rgba(201, 162, 75, 0.35);
+    0 0 25px rgba(201, 162, 75, 0.22);
 }
 
-.purpose-content p:not(.purpose-main) {
-  max-width: 550px;
+.purpose-description {
+  max-width: 480px;
+  margin-top: 35px;
 
-  margin: 35px auto 0;
+  padding-left: 25px;
+
+  border-left: 1px solid rgba(201, 162, 75, 0.3);
 
   color: #a99d86;
-
+  font-size: 0.95rem;
   line-height: 1.8;
+}
+
+.purpose-description p {
+  margin: 0 0 15px;
+}
+
+.purpose-description p:last-child {
+  margin-bottom: 0;
 }
 
 .profile-chat-button {
   margin-top: 45px;
-
   padding: 16px 30px;
 
   border: 1px solid #c9a24b;
-
   background: transparent;
 
   color: #e7c874;
 
   font-family: inherit;
-
   font-size: 0.7rem;
-
   letter-spacing: 0.25em;
 
   cursor: pointer;
@@ -2502,56 +2885,101 @@ body::after {
 
 .profile-chat-button:hover {
   background: #c9a24b;
-
   color: #090705;
 
   box-shadow:
     0 0 30px rgba(201, 162, 75, 0.35);
 }
 
+
 @media (max-width: 700px) {
-  #wraith-world>.wraith-intro,
-    #wraith-world>.wraith-origin,
-    #wraith-world>.wraith-powers,
-    #wraith-world>.wraith-mission,
-    #wraith-world>.wraith-personality,
-    #wraith-world>.wraith-purpose {
-      padding: 90px 25px;
+
+  .personality-content {
+    width: 100%;
+    margin-left: 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px 14px;
+
+    padding-top: 60px;
+  }
+
+  .personality-word {
+    position: relative;
+
+    width: 100%;
+    min-height: 58px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px 10px;
+
+    text-align: center;
+  }
+
+  .personality-name {
+    display: block;
+    transition: opacity 0.2s ease;
+  }
+
+    .personality-description {
+      position: absolute;
+  
+      top: 50%;
+      left: 50%;
+  
+      width: calc(100% - 20px);
+      max-height: calc(100% - 16px);
+  
+      margin: 0;
+      padding: 0;
+  
+      transform: translate(-50%, -50%) scale(0.95);
+  
+      opacity: 0;
+  
+      color: #e7c874;
+  
+      font-size: 0.68rem;
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+  
+      text-align: center;
+  
+      pointer-events: none;
+      z-index: 2;
+  
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
     }
 
-  .wraith-intro h1 {
-    font-size: 4.5rem;
+  .personality-word:hover {
+    background: rgba(201, 162, 75, 0.06);
+    border-color: rgba(231, 200, 116, 0.65);
+    box-shadow: 0 0 20px rgba(201, 162, 75, 0.12);
   }
 
-  .wraith-block-title {
-    top: 45px;
-    left: 25px;
+  .personality-word:hover .personality-name {
+    opacity: 0;
   }
 
-  .wraith-block-content,
-  .power-list,
-  .personality-content {
-    margin-left: 0;
-  }
-
-  .wraith-big-text {
-    font-size: 2.3rem;
-  }
-
-  .mission-main {
-    font-size: 3rem;
+  .personality-word:hover .personality-description {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 
   .personality-quote {
-    position: static;
-
-    margin-top: 40px;
-  }
-
-  .purpose-main {
-    font-size: 4rem;
+    display: none;
   }
 }
+
 
 .chat-dialog {
   width: 100%;
@@ -2564,6 +2992,7 @@ body::after {
   align-items: center;
   justify-content: center;
 }
+
 
 .hologram {
   width: min(850px, 90vw);
@@ -2583,6 +3012,8 @@ body::after {
   position: relative;
 }
 
+
+
 .messages {
   flex: 1;
 
@@ -2595,6 +3026,8 @@ body::after {
   box-sizing: border-box;
 }
 
+
+
 .chat-input {
   width: 100%;
 
@@ -2605,6 +3038,7 @@ body::after {
   box-sizing: border-box;
 }
 
+
 .chat-input input {
   flex: 1;
 
@@ -2613,7 +3047,10 @@ body::after {
   box-sizing: border-box;
 }
 
+
+
 @media (max-width: 700px) {
+
   .chat-dialog {
     padding: 20px;
   }
@@ -2626,16 +3063,23 @@ body::after {
   .messages {
     padding: 20px;
   }
+
 }
+
 
 .hologram {
   position: relative;
 }
 
+
+
+
 .chat-shell {
   position: relative;
   z-index: 5;
 }
+
+
 
 .holo-phone {
   position: absolute;
@@ -2650,6 +3094,9 @@ body::after {
 
   z-index: 1;
 }
+
+
+
 
 .holo-beam {
   position: absolute;
@@ -2685,6 +3132,7 @@ body::after {
   z-index: 5;
 }
 
+
 .hologram {
   overflow: visible;
 }
@@ -2719,6 +3167,9 @@ in {
   overflow: hidden;
 }
 
+
+
+
 .origin-heading {
   position: sticky;
 
@@ -2726,6 +3177,7 @@ in {
 
   align-self: start;
 }
+
 
 .origin-heading span {
   display: block;
@@ -2738,6 +3190,7 @@ in {
 
   color: #a99d86;
 }
+
 
 .origin-heading h2 {
   margin: 0;
@@ -2769,6 +3222,7 @@ in {
     rgba(201, 162, 75, 0.4) transparent;
 }
 
+
 .origin-text p {
   max-width: 650px;
 
@@ -2781,9 +3235,13 @@ in {
   line-height: 1.9;
 }
 
+
 .origin-text strong {
   color: #e7c874;
 }
+
+
+
 
 .origin-reveal {
   padding: 30px 0;
@@ -2799,42 +3257,115 @@ in {
   color: #eee5d2 !important;
 }
 
+
 .origin-final {
   padding-bottom: 80px;
 }
 
+
+
 @media (max-width: 700px) {
-  .wraith-origin {
-    height: 100svh;
 
-    padding: 80px 25px 30px !important;
-  }
+  .personality-content {
+      width: 100%;
+      margin-left: 0;
+  
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px 14px;
+    }
 
-  .origin-content {
-    height: calc(100svh - 140px);
+    .personality-word {
+      position: relative;
+  
+      width: 100%;
+      min-height: 58px;
+  
+      box-sizing: border-box;
+  
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      padding: 16px 10px;
+  
+      text-align: center;
+  
+      transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+    }
 
-    margin-top: 40px;
 
+
+
+  .personality-name {
     display: block;
 
-    overflow: hidden;
+    transition:
+      opacity 0.2s ease;
   }
 
-  .origin-heading {
-    position: static;
 
-    margin-bottom: 35px;
+
+    .personality-description {
+      position: absolute;
+  
+      bottom: calc(100% + 12px);
+      left: 50%;
+  
+      width: 190px;
+  
+      margin: 0;
+  
+      transform:
+        translateX(-50%) translateY(8px) scale(0.95);
+  
+      opacity: 0;
+  
+      color: #e7c874;
+  
+      font-size: 0.72rem;
+      line-height: 1.5;
+      letter-spacing: 0.03em;
+  
+      text-align: center;
+  
+      pointer-events: none;
+  
+      z-index: 20;
+  
+      text-shadow:
+        0 0 10px rgba(231, 200, 116, 0.35);
+  
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+    }
+ 
+  .personality-word:hover {
+    background:
+      rgba(201, 162, 75, 0.06);
+
+    border-color:
+      rgba(231, 200, 116, 0.65);
+
+    box-shadow:
+      0 0 20px rgba(201, 162, 75, 0.12);
   }
 
-  .origin-heading h2 {
-    font-size: 2.4rem;
+  .personality-word:hover .personality-description {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%) scale(1);
   }
 
-  .origin-text {
-    height: calc(100% - 150px);
-
-    padding-right: 15px;
+  .personality-quote {
+    display: none;
   }
+
 }
 
 .wraith-origin {
@@ -2874,6 +3405,8 @@ in {
   color: rgba(201, 162, 75, 0.55);
 }
 
+
+
 .origin-layout {
   width: min(1150px, 100%);
 
@@ -2888,6 +3421,7 @@ in {
   align-items: center;
 }
 
+
 .origin-title span {
   display: block;
 
@@ -2899,6 +3433,7 @@ in {
 
   color: #a99d86;
 }
+
 
 .origin-title h2 {
   margin: 0;
@@ -2915,6 +3450,7 @@ in {
     0 0 25px rgba(201, 162, 75, 0.25);
 }
 
+
 .origin-line {
   width: 70px;
 
@@ -2924,6 +3460,7 @@ in {
 
   background: #c9a24b;
 }
+
 
 .origin-title p {
   max-width: 300px;
@@ -2937,6 +3474,7 @@ in {
   color: #a99d86;
 }
 
+
 .origin-story {
   max-width: 650px;
 
@@ -2948,6 +3486,7 @@ in {
 
   box-sizing: border-box;
 }
+
 
 .origin-story::-webkit-scrollbar {
   width: 3px;
@@ -2961,6 +3500,7 @@ in {
   background: rgba(201, 162, 75, 0.35);
 }
 
+
 .origin-story>p {
   margin: 0 0 25px;
 
@@ -2971,9 +3511,11 @@ in {
   color: #b9ae99;
 }
 
+
 .origin-story strong {
   color: #e7c874;
 }
+
 
 .origin-reveal {
   margin: 35px 0;
@@ -2984,6 +3526,7 @@ in {
 
   border-bottom: 1px solid rgba(201, 162, 75, 0.25);
 }
+
 
 .origin-reveal span {
   display: block;
@@ -2997,6 +3540,7 @@ in {
   color: #a99d86;
 }
 
+
 .origin-reveal strong {
   display: block;
 
@@ -3004,6 +3548,7 @@ in {
 
   color: #eee5d2;
 }
+
 
 .origin-reveal em {
   display: block;
@@ -3017,6 +3562,7 @@ in {
   color: #e7c874;
 }
 
+
 .origin-ending {
   margin-top: 40px;
 
@@ -3025,6 +3571,7 @@ in {
   border-top: 1px solid rgba(201, 162, 75, 0.2);
 }
 
+
 .origin-ending>span {
   font-size: 0.6rem;
 
@@ -3032,6 +3579,7 @@ in {
 
   color: #a99d86;
 }
+
 
 .origin-ending p {
   margin: 15px 0;
@@ -3042,6 +3590,7 @@ in {
 
   color: #e7c874;
 }
+
 
 .origin-ending small {
   display: block;
@@ -3055,7 +3604,10 @@ in {
   color: #a99d86;
 }
 
+
+
 @media (max-width: 700px) {
+
   .wraith-origin {
     height: 100svh;
     min-height: 100svh;
@@ -3109,6 +3661,7 @@ in {
   }
 }
 
+
 .me-section {
   width: 100%;
   min-height: 100vh;
@@ -3141,6 +3694,7 @@ in {
 
   gap: 80px;
 }
+
 
 .me-text {
   flex: 1;
@@ -3212,6 +3766,7 @@ in {
   line-height: 1.5;
 }
 
+
 .me-image {
   position: relative;
 
@@ -3262,6 +3817,7 @@ in {
 }
 
 @keyframes meGlow {
+
   0%,
   100% {
     transform: scale(0.95);
@@ -3274,7 +3830,10 @@ in {
   }
 }
 
+
+
 @media (max-width: 700px) {
+
   .me-section {
     padding: 90px 25px;
   }
@@ -3303,5 +3862,111 @@ in {
 
   .me-image img {
     height: 450px;
+  }
+}
+@media (max-width: 700px) {
+
+  .personality-word {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .personality-name {
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  .personality-description {
+    position: absolute !important;
+
+    top: 50% !important;
+    bottom: auto !important;
+    left: 50% !important;
+
+    width: calc(100% - 20px) !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    opacity: 0;
+
+    color: #e7c874;
+
+    font-size: 0.68rem;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+
+    text-align: center;
+
+    pointer-events: none;
+    z-index: 2;
+
+    transition: opacity 0.25s ease;
+  }
+
+  .personality-word:hover .personality-name {
+    opacity: 0;
+  }
+
+  .personality-word:hover .personality-description {
+    opacity: 1;
+
+    transform: translate(-50%, -50%) !important;
+  }
+}
+
+
+.mission-content {
+  position: relative;
+}
+
+.mission-content::before {
+  content: "";
+
+  position: absolute;
+  width: 420px;
+  height: 420px;
+
+  left: 35%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle,
+      rgba(231, 200, 116, 0.10),
+      rgba(201, 162, 75, 0.04) 40%,
+      transparent 70%);
+
+  filter: blur(25px);
+
+  pointer-events: none;
+  z-index: 0;
+
+  animation: missionMagic 6s ease-in-out infinite;
+}
+
+.mission-content>* {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes missionMagic {
+
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.08);
   }
 }
