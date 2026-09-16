@@ -202,19 +202,16 @@ const visitorData = {
 
 
 const questions = [
+  "First things first. What should I call you?",
 
-    "What's your name?",
+  "How old are you? Just the number. I promise I won't judge.",
 
-    "How old are you?",
+  "Where are you located? The general area will do.",
 
-    "Where are you located?",
+  "What's your Gmail? Yes, Gmail specifically.",
 
-    "What's your Gmail address?",
-
-    "Now tell me what's going on. What's the issue?"
-
+  "Alright, what kind of mess are we dealing with?",
 ];
-
 
 const fields = [
 
