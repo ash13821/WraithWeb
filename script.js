@@ -430,13 +430,18 @@ function updatePlaceholder() {
 
     if (!input) return;
 
-    if (
-        currentStep <
-        questions.length
-    ) {
+    const placeholders = [
+        "Your name...",
+        "Just the number...",
+        "Where are you from...",
+        "Your Gmail...",
+        "Tell me what happened..."
+    ];
+
+    if (currentStep < placeholders.length) {
 
         input.placeholder =
-            questions[currentStep];
+            placeholders[currentStep];
 
     } else {
 
