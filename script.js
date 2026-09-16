@@ -1364,9 +1364,9 @@ async function handleSend(event) {
 
 
         addMessage(
-            "Okay. I think I've got the picture now. I'll take it from here.",
-            "bot"
-        );
+    getFinalWraithResponse(text),
+    "bot"
+);
 
 
         await new Promise(
