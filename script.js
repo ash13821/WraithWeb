@@ -279,106 +279,427 @@ function getWraithResponse(text) {
 
     const message = text.toLowerCase();
 
+    const categories = {
 
-    if (
-        message.includes("unsafe") ||
-        message.includes("danger") ||
-        message.includes("threat") ||
-        message.includes("threatened") ||
-        message.includes("scared") ||
-        message.includes("afraid")
-    ) {
+        academic: {
+            clues: [
+                "college",
+                "university",
+                "campus",
+                "class",
+                "classmate",
+                "professor",
+                "teacher",
+                "lecturer",
+                "exam",
+                "exams",
+                "test",
+                "semester",
+                "assignment",
+                "lab",
+                "viva",
+                "attendance",
+                "marks",
+                "grades",
+                "grade",
+                "cgpa",
+                "gpa",
+                "backlog",
+                "syllabus",
+                "project",
+                "presentation",
+                "study",
+                "studying",
+                "homework",
+                "deadline",
+                "course",
+                "subject",
+                "failed my exam",
+                "failed the exam",
+                "failed a test",
+                "failed my test",
+                "failed the subject"
+            ],
 
-        return "Okay. That's serious. Forget everything else for a second. Are you safe right now?";
+            responses: [
+                "College. Of course. Because apparently life wasn't stressful enough already. What's been bothering you?",
+                "Okay, academic chaos. What exactly happened?",
+                "Right. We've got a study-related crisis. Tell me what's going on.",
+                "Exams, assignments, deadlines... humanity really had to make learning this dramatic. What's the problem?"
+            ]
+        },
+
+
+        career: {
+            clues: [
+                "job",
+                "work",
+                "workplace",
+                "boss",
+                "manager",
+                "coworker",
+                "colleague",
+                "internship",
+                "interview",
+                "interviews",
+                "resume",
+                "cv",
+                "career",
+                "promotion",
+                "salary",
+                "paycheck",
+                "placement",
+                "office",
+                "client",
+                "deadline",
+                "application",
+                "rejected from the job",
+                "failed my interview",
+                "lost my job",
+                "got fired"
+            ],
+
+            responses: [
+                "Career problems. Lovely. Tell me what happened.",
+                "Okay, work has officially entered the chat. What's going on?",
+                "An interview, a job, or something else? Give me the details.",
+                "Right. Professional disaster. Start from the beginning."
+            ]
+        },
+
+
+        friendship: {
+            clues: [
+                "best friend",
+                "bestie",
+                "close friend",
+                "my friend",
+                "my friends",
+                "friendship",
+                "friend group",
+                "friend group",
+                "we stopped talking",
+                "stopped talking to me",
+                "not talking to me",
+                "ignored me",
+                "ignoring me",
+                "ghosted me",
+                "betrayed me",
+                "my friend lied",
+                "friend lied",
+                "lost a friend"
+            ],
+
+            responses: [
+                "Okay. This sounds personal. What happened?",
+                "Friendship drama. Fantastic. Start from the beginning.",
+                "Someone you care about is involved. Tell me what happened.",
+                "Okay, I'm listening. Give me the actual story."
+            ]
+        },
+
+
+        romantic: {
+            clues: [
+                "boyfriend",
+                "girlfriend",
+                "partner",
+                "relationship",
+                "dating",
+                "date",
+                "breakup",
+                "broke up",
+                "ex",
+                "crush",
+                "love",
+                "cheated",
+                "cheating",
+                "romantic",
+                "relationship ended",
+                "my boyfriend",
+                "my girlfriend",
+                "my partner"
+            ],
+
+            responses: [
+                "Okay. Relationship territory. This could get complicated. What happened?",
+                "Right. Feelings. Humanity's favourite source of unnecessary complications. Tell me.",
+                "Okay, this sounds like a relationship problem. Start from the beginning.",
+                "I have questions already. Unfortunately, you're going to have to tell me the story first."
+            ]
+        },
+
+
+        family: {
+            clues: [
+                "my mom",
+                "my mum",
+                "my mother",
+                "my dad",
+                "my father",
+                "my parents",
+                "my parent",
+                "my brother",
+                "my sister",
+                "my sibling",
+                "my family",
+                "family member",
+                "family problem",
+                "family issue",
+                "at home",
+                "parents won't",
+                "parents don't",
+                "parents are",
+                "argument with my parents",
+                "fight with my parents"
+            ],
+
+            responses: [
+                "Family stuff. Never exactly simple, is it? Tell me what's going on.",
+                "Okay. Family situation. I'm listening.",
+                "Right. This one's a little more personal. What happened?",
+                "Family drama. Because apparently we weren't allowed to have a peaceful day."
+            ]
+        },
+
+
+        money: {
+            clues: [
+                "money",
+                "broke",
+                "debt",
+                "loan",
+                "rent",
+                "fees",
+                "tuition",
+                "financial",
+                "finance",
+                "salary",
+                "income",
+                "afford",
+                "expensive",
+                "bank",
+                "bill",
+                "bills",
+                "payment",
+                "paying",
+                "can't afford",
+                "cannot afford",
+                "need money"
+            ],
+
+            responses: [
+                "Money problems. Humanity's favourite recurring villain. What's going on?",
+                "Okay, financial mess. Tell me what happened.",
+                "Right. Money. Annoyingly important for absolutely everything. What's the situation?",
+                "Let's deal with one problem at a time. What's happening?"
+            ]
+        },
+
+
+        safety: {
+            clues: [
+                "unsafe",
+                "not safe",
+                "danger",
+                "dangerous",
+                "threat",
+                "threatened",
+                "someone threatened me",
+                "following me",
+                "stalking me",
+                "attacked",
+                "attacking me",
+                "hurt me",
+                "hit me",
+                "hitting me",
+                "abuse",
+                "abusive",
+                "harassed",
+                "harassment",
+                "afraid to go home",
+                "scared to go home",
+                "someone is after me",
+                "someone is following me"
+            ],
+
+            responses: [
+                "Okay. That's serious. Forget everything else for a second. Are you safe right now?",
+                "That's not something I'm going to joke about. Are you somewhere safe?",
+                "Okay. Safety first. Tell me what's happening.",
+                "Right. This needs attention. Are you safe right now?"
+            ]
+        },
+
+
+        emotional: {
+            clues: [
+                "sad",
+                "sadness",
+                "lonely",
+                "loneliness",
+                "alone",
+                "crying",
+                "cry",
+                "hurt",
+                "heartbroken",
+                "empty",
+                "numb",
+                "hopeless",
+                "exhausted",
+                "tired",
+                "burnt out",
+                "burned out",
+                "overwhelmed",
+                "stressed",
+                "stress",
+                "anxious",
+                "anxiety",
+                "worried",
+                "scared",
+                "afraid",
+                "confused",
+                "lost",
+                "frustrated",
+                "angry",
+                "furious",
+                "upset",
+                "miserable",
+                "can't cope",
+                "cannot cope",
+                "don't know what to do",
+                "dont know what to do"
+            ],
+
+            responses: [
+                "Hey. You don't have to pretend you're fine with me. Tell me what's going on.",
+                "Okay. That's a lot to carry. Start wherever you want.",
+                "You don't have to explain it perfectly. Just tell me what's happening.",
+                "Right. Let's slow this down for a second. What's bothering you the most?"
+            ]
+        },
+
+
+        social: {
+            clues: [
+                "people",
+                "everyone",
+                "nobody",
+                "social",
+                "group",
+                "ignored",
+                "judging me",
+                "they hate me",
+                "no one likes me",
+                "left me out",
+                "excluded",
+                "embarrassed",
+                "embarrassing",
+                "awkward"
+            ],
+
+            responses: [
+                "Okay. People are being people again. Tell me what happened.",
+                "Social disaster? I need context.",
+                "Right. Something happened with other people. Start from the beginning.",
+                "Okay, you've got my attention. What did they do?"
+            ]
+        },
+
+
+        failure: {
+            clues: [
+                "failed",
+                "failure",
+                "messed up",
+                "screwed up",
+                "made a mistake",
+                "ruined everything",
+                "didn't succeed",
+                "couldn't do it",
+                "couldn't fix it",
+                "lost"
+            ],
+
+            responses: [
+                "You keep calling it a failure. I'm not convinced that's the whole story. What actually happened?",
+                "Okay. Something didn't go according to plan. Tell me what happened.",
+                "You messed something up. Join the club. What happened?",
+                "Right. Something went wrong. That doesn't tell me why yet."
+            ]
+        },
+
+
+        general: {
+            clues: [],
+
+            responses: [
+                "Okay. You've got my attention. Tell me a little more.",
+                "I'm listening. Start wherever you want.",
+                "Right. Something's going on. Give me the details.",
+                "Okay. I need the actual story now.",
+                "You've clearly got something on your mind. What happened?"
+            ]
+        }
+
+    };
+
+
+    const scores = {};
+
+
+    for (const category in categories) {
+
+        scores[category] = 0;
+
+        for (const clue of categories[category].clues) {
+
+            if (message.includes(clue)) {
+
+                scores[category] +=
+                    clue.includes(" ")
+                        ? 3
+                        : 1;
+
+            }
+
+        }
 
     }
 
 
-    if (
-        message.includes("college") ||
-        message.includes("exam") ||
-        message.includes("assignment") ||
-        message.includes("marks") ||
-        message.includes("study")
-    ) {
-
-        return "College. Of course. Because apparently life wasn't stressful enough already. What's been bothering you?";
-
-    }
+    let bestCategory = "general";
+    let highestScore = 0;
 
 
-    if (
-        message.includes("friend") ||
-        message.includes("bestie") ||
-        message.includes("friendship")
-    ) {
+    for (const category in scores) {
 
-        return "Okay. This sounds personal. What happened?";
+        if (
+            scores[category] > highestScore
+        ) {
+
+            highestScore =
+                scores[category];
+
+            bestCategory =
+                category;
+
+        }
 
     }
 
 
-    if (
-        message.includes("family") ||
-        message.includes("parent") ||
-        message.includes("parents") ||
-        message.includes("home")
-    ) {
-
-        return "Family stuff. Never exactly simple, is it? Tell me what's going on.";
-
-    }
+    const responses =
+        categories[bestCategory].responses;
 
 
-    if (
-        message.includes("sad") ||
-        message.includes("lonely") ||
-        message.includes("alone") ||
-        message.includes("cry")
-    ) {
-
-        return "Hey. You don't have to pretend you're fine with me. Tell me what's going on.";
-
-    }
-
-
-    if (
-        message.includes("angry") ||
-        message.includes("mad") ||
-        message.includes("furious")
-    ) {
-
-        return "Okay. Someone has clearly managed to annoy you. I need the story.";
-
-    }
-
-
-    if (
-        message.includes("stress") ||
-        message.includes("stressed") ||
-        message.includes("overwhelmed")
-    ) {
-
-        return "Sounds like you've got a lot on your plate. Let's untangle it one thing at a time.";
-
-    }
-
-
-    if (
-        message.includes("confused") ||
-        message.includes("lost") ||
-        message.includes("don't know")
-    ) {
-
-        return "That's okay. You don't need to have everything figured out. Start wherever it makes sense.";
-
-    }
-
-
-    return "Okay. You've got my attention. Tell me a little more.";
+    return responses[
+        Math.floor(
+            Math.random() * responses.length
+        )
+    ];
 
 }
-
 
 async function submitGrievance() {
 
