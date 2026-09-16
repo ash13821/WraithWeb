@@ -1613,8 +1613,7 @@ async function handleSend(event) {
     if (problemFollowUp) {
 
         visitorData.grievance +=
-            "\n\nAdditional details: " +
-            text;
+    "\n\n" + text;
 
 
         problemFollowUp =
